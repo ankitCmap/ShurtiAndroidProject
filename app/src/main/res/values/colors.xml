@@ -26,4 +26,84 @@
     <color name="foldia_main_color">#f29507</color>
     <color name="filter_color">#fee5ca</color>
     <color name="filter_outer_color">#7d5b5b5b</color>
+    <color name="dark_gray">#B5F7F4F4</color>
+    <color name="button_green">#4CAF50</color>
+    <color name="colorPrimary">#FAFAFA</color>
+    <color name="colorPrimaryDark">#303030</color>
+    <color name="colorAccent">#2F80ED</color>
+    <color name="colorDrawer">#EAEAEA</color>
+    <color name="colorHighlight">#FAFAFA</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="loginBackground">#22293C</color>
+    <color name="schoolStats">#242424</color>
+    <color name="colorSecondaryText">#727272</color>
+    <color name="actionbarColor">#FAFAFA</color>
+    <!--color name="colorSplash">#40AAD4</color-->
+    <color name="gray4">#BDBDBD</color>
+    <color name="lightgrey">#E8E8E8</color>
+    <color name="colorSplash">#E94D1C</color>
+    <color name="coupon_color">#FE9400</color>
+    <color name="colorCardBG">#FFF</color>
+    <color name="dim">#80FFFFFF</color>
+    <color name="colorError">#BF360C</color>
+
+    <color name="selected_tab_trans_color">#20BF360C</color>
+    <color name="selected_tab_color">#BF360C</color>
+    <color name="colorDrawerLine">#D0D0D0</color>
+    <color name="colorDonated">#BDBDBD</color>
+    <color name="colorDisabled">#424242</color>
+    <color name="cardColor">#CCCCCC</color>
+    <color name="bronzeTrophy">#CD7F32</color>
+    <color name="silverTrophy">#C0C0C0</color>
+    <color name="goldTrophy">#FFD700</color>
+    <color name="dark_trans_black">#80000000</color>
+    <color name="light_gray_line">#f2f2f2</color>
+    <color name="light_gray_line2">#88FAF7F7</color>
+    <color name="colorAuthor">#9E9E9E</color>
+    <color name="colorBrown">#F25922</color>
+    <color name="colorYellow">#FBC02D</color>
+    <color name="blue_link">#2F80ED</color>
+    <color name="light_blue">#402F80ED</color>
+    <color name="green_new">#27AE60</color>
+    <color name="colorBlue">#0D47A1</color>
+    <color name="colorCoins">#EC9B46</color>
+    <color name="colorCoinsBack">#FCE392</color>
+
+    <color name="schoolAccent">#414040</color>
+    <color name="schoolBg">#F3F2F2</color>
+    <color name="schoolBorder">#B6B6B6</color>
+    <color name="schoolLine">#E5E5E5</color>
+    <color name="color1">#E91E63</color>
+    <color name="green_trans">#4A51CC85</color>
+    <color name="red_trans">#4ABF360C</color>
+
+    <color name="green_text">#27AE60</color>
+    <color name="red_text">#BF360C</color>
+
+    <color name="color2">#FFEB3B</color>
+    <color name="color3">#FFC107</color>
+    <color name="color4">#FF9800</color>
+    <color name="color5">#FF5722</color>
+    <color name="color7">#009688</color>
+    <color name="color7light">#20009688</color>
+    <color name="primary1">#009688</color>
+    <color name="primary2">#795548</color>
+    <color name="primary3">#00BCD4</color>
+    <color name="primary4">#FF5722</color>
+    <color name="green">#27AE60</color>
+    <color name="ltb_status_bg">#FDDF2E</color>
+    <color name="wallet_green">#41b772</color>
+    <color name="wallet_red">#eb5252</color>
+    <color name="light_bg">#d3d0c9</color>
+    <color name="ltb_theme_1">#fcf1c1</color>
+    <color name="ltb_theme_2">#fefae7</color>
+    <array name="divTitleColor">
+        <item>@color/color1</item>
+        <item>@color/color2</item>
+        <item>@color/color3</item>
+        <item>@color/color4</item>
+        <item>@color/color5</item>
+        <item>@color/blue_link</item>
+        <item>@color/color7</item>
+    </array>
 </resources>
