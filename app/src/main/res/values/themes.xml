@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ShurtiAndroidProject" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/foldia_main_color</item>
+        <item name="colorPrimaryVariant">@color/foldia_main_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!--  Secondary brand color.
+        <item name="android:statusBarColor" tools:targetApi="l">@color/foldia_main_color</item>
+         Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+</resources>

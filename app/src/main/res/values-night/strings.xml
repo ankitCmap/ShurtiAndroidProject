@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="everything">" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_. \n,-/()"</string>
+    <string name="terms_of_use_amp_policy"><![CDATA[Terms of Use & Policy]]></string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+</resources>

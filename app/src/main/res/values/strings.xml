@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ShurtiAndroidProject</string>
+
+    <string name="facebook_app_id">1234</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+    <string name="welcome">Welcome to LTB</string>
+    <string name="everything">" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_. \n,-/()"</string>
+    <string name="terms_of_use_amp_policy"><![CDATA[Terms of Use & Policy]]></string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+</resources>

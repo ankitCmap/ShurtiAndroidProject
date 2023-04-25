@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SocialActivity">
+
+    <LinearLayout
+        android:id="@+id/llFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_56sdp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:layout_width="@dimen/_56sdp"
+            android:layout_height="@dimen/_56sdp"
+            android:src="@drawable/facebook_logo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/poppins_bold"/>
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvcontinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:gravity="center"
+            android:background="@drawable/ic_button_continue"
+            android:textSize="@dimen/_18ssp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_80sdp"
+            app:layout_constraintBottom_toTopOf="@+id/llFacebook"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

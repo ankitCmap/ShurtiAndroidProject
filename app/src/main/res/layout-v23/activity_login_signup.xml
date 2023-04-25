@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="loginData"
+            type="com.example.shurtiandroidproject.viewmodel.MainVM" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        tools:context=".ui.LoginSignupActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="60dp"
+                    android:elevation="15dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="15dp">
+
+                    <ImageView
+                        android:layout_width="85dp"
+                        android:layout_height="85dp"
+                        android:src="@mipmap/ic_launcher" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:maxLines="1"
+                    android:text="Login or Signup"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="Enter your mobile number to get started"
+                    android:textColor="#3C3C43"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/bg_edit_text"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="?attr/actionBarSize"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="center"
+                            android:paddingRight="5dp"
+                            android:text="+91"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:visibility="visible" />
+
+                        <LinearLayout
+                            android:layout_width="1.5dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="#151515" />
+
+
+                        <EditText
+                            android:digits="@string/everything"
+                            android:id="@+id/et_phoneNumber"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="85"
+                            android:backgroundTint="@android:color/transparent"
+                            android:fontFamily="@font/poppins_bold"
+                            android:gravity="left|center_vertical"
+                            android:hint="Enter 10 digit number"
+                            android:inputType="phone"
+                            android:maxEms="10"
+                            android:maxLength="10"
+                            android:maxLines="1"
+                            android:selectAllOnFocus="false"
+                            android:paddingLeft="17dp"
+                            android:paddingTop="0dp"
+                            android:paddingBottom="0dp"
+                            android:textColor="@color/black"
+                            android:textColorHint="#828282"
+                            android:textSize="16sp"
+                            />
+                        <!-- android:theme="@style/BookChorTheme.Main" -->
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_continue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="#F25822"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:text="Continue"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:cornerRadius="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:text="By continuing, you agree to Bookchor’s"
+                    android:textColor="#3C3C43"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_Terms_Policy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="30dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="@string/terms_of_use_amp_policy"
+                    android:textColor="#F25822"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvskip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:layout_gravity="center_horizontal"
+                    android:maxLines="1"
+                    android:text="Skip"
+                    android:textColor="#2F80ED"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
