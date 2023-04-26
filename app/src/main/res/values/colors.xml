@@ -106,4 +106,7 @@
         <item>@color/blue_link</item>
         <item>@color/color7</item>
     </array>
+
+    <!--text Color-->
+    <color name="textColor">#151515</color>
 </resources>

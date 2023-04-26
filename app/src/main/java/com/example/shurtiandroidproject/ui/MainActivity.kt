@@ -31,9 +31,6 @@ class MainActivity : BaseActivity() {
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
         actionBarDrawerToggle = ActionBarDrawerToggle(this, binding.myDrawerLayout, R.string.nav_open, R.string.nav_close)
-
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
         binding.myDrawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
 
