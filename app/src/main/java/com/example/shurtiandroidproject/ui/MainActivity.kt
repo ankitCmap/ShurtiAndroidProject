@@ -27,6 +27,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        /*gggggg*/
         viewModel = getViewModel()
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer
