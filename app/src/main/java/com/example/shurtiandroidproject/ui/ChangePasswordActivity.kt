@@ -15,14 +15,14 @@ class ChangePasswordActivity :BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=DataBindingUtil.setContentView(this, R.layout.activity_change_password)
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_change_password)
         initView()
     }
 
     private fun initView() {
         binding.btnUpdatePassword.setOnClickListener {
 //            BasePreferencesManager.putBoolean(BasePreferencesManager.IS_SKIP,true)
-            val intent = Intent(this@ChangePasswordActivity, MainActivity::class.java)
+            val intent = Intent(this@ChangePasswordActivity, DashbordActivity::class.java)
             startActivity(intent)
             finish()
 
