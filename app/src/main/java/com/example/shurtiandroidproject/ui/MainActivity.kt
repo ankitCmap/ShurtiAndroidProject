@@ -3,9 +3,11 @@ package com.example.shurtiandroidproject.ui
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.shurtiandroidproject.R
 import com.example.shurtiandroidproject.network.RetrofitHelper
@@ -15,6 +17,8 @@ import com.example.shurtiandroidproject.helper.Utils
 import com.example.shurtiandroidproject.network.WebServices
 import com.example.shurtiandroidproject.repository.MainRepository
 import com.example.shurtiandroidproject.roomdatabase.BaseActivity
+import com.example.shurtiandroidproject.ui.gallery.GalleryFragment
+import com.example.shurtiandroidproject.ui.home.HomeFragment
 import com.example.shurtiandroidproject.viewmodel.MainVM
 import java.util.*
 
@@ -26,24 +30,40 @@ class MainActivity : BaseActivity() {
     private lateinit var sampleAdapter:SampleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
+        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = getViewModel()
         // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
-        actionBarDrawerToggle = ActionBarDrawerToggle(this, binding.myDrawerLayout, R.string.nav_open, R.string.nav_close)
-        binding.myDrawerLayout.addDrawerListener(actionBarDrawerToggle)
-        actionBarDrawerToggle.syncState()
 
-        // to make the Navigation drawer icon always appear on the action bar
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // drawer and back button to close drawer
+        binding.apply {
+            actionBarDrawerToggle = ActionBarDrawerToggle(this@MainActivity, drawerLayout, R.string.nav_open, R.string.nav_close)
+            drawerLayout.addDrawerListener(actionBarDrawerToggle)
+            actionBarDrawerToggle.syncState()
+
+            // to make the Navigation drawer icon always appear on the action bar
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            navView.setCheckedItem(R.id.nav_account)
+            replaceFragment(HomeFragment(),"Home")
+            navView.setNavigationItemSelectedListener {
+                it.isChecked=true
+                when(it.itemId){
+                    R.id.nav_account-> replaceFragment(HomeFragment(),it.title.toString())
+                    R.id.nav_settings-> replaceFragment(GalleryFragment(),it.title.toString())
+                    R.id.nav_logout-> replaceFragment(HomeFragment(),it.title.toString())
+                }
+                true
+            }
+        }
+
         initView()
         onObservable()
         binding.mainData=viewModel
     }
     private fun onObservable() {
 
-        viewModel.dataList.observe(this) {
+       /* viewModel.dataList.observe(this) {
             if (it==null){
                 binding.empty.wallEmptyLl.visibility=View.VISIBLE
                 sampleAdapter.cleareData()
@@ -60,11 +80,11 @@ class MainActivity : BaseActivity() {
             }else{
                 dismissDialog()
             }
-        }
+        }*/
     }
 
     private fun initView() {
-        binding.ivSearch.setBackgroundResource(R.mipmap.search)
+        /*binding.ivSearch.setBackgroundResource(R.mipmap.search)
         viewModel.getOnlineData(this)
         sampleAdapter= SampleAdapter()
         binding.rvMain.adapter=sampleAdapter
@@ -80,18 +100,29 @@ class MainActivity : BaseActivity() {
                 viewModel.getOnlineData(this)
                 binding.ivSearch.setBackgroundResource(R.mipmap.search)
             }
-        }
+        }*/
     }
 
     @JvmName("getViewModel1")
     private fun getViewModel(): MainVM {
         repository = MainRepository(RetrofitHelper.createRetrofitService(WebServices::class.java))
-        return ViewModelProvider(this, MainVM.Factory(repository)).get("", MainVM::class.java)
+        return ViewModelProvider(this, MainVM.Factory(repository))["", MainVM::class.java]
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+        if(actionBarDrawerToggle.onOptionsItemSelected(item)) {
             true
-        } else super.onOptionsItemSelected(item)
+        }
+            return super.onOptionsItemSelected(item)
+
+    }
+
+    private fun replaceFragment(fragment : Fragment,title : String){
+        val fragmentManager=supportFragmentManager
+        val fragmentTransition=fragmentManager.beginTransaction()
+        fragmentTransition.replace(R.id.frame_layout,fragment)
+        fragmentTransition.commit()
+        binding.drawerLayout.closeDrawers()
+        setTitle(title)
     }
 }

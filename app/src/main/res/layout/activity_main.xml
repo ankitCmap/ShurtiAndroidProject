@@ -8,139 +8,92 @@
             name="mainData"
             type="com.example.shurtiandroidproject.viewmodel.MainVM" />
     </data>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:orientation="vertical">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@color/color3">
-
-            <TableRow
-                android:paddingLeft="@dimen/_5sdp"
-                android:paddingRight="@dimen/_5sdp">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_menu_24"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent"
-                    android:id="@+id/action_bar_back" />
-
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ltb"
-                    android:layout_weight="1"
-                    />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/baseline_search_24"
-                    android:id="@+id/action_bar_search"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent" />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:src="@drawable/baseline_add_shopping_cart_24"
-                    android:id="@+id/action_bar_cart"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent" />
-
-
-            </TableRow>
-
-        </TableLayout>
     <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/my_drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        tools:context=".ui.MainActivity">
 
-        tools:ignore="HardcodedText">
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-        <RelativeLayout
-            android:id="@+id/rlserach"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:background="@drawable/rectanglegrey"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/edt_search"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50sdp"
-                android:layout_alignParentLeft="true"
-                android:background="@drawable/rect_semore"
-                android:hint="Search Model"
-                android:paddingHorizontal="@dimen/_10sdp"
-                android:paddingLeft="20dp"
-                android:paddingRight="@dimen/_60sdp"
-                android:singleLine="true"
-                android:textColor="@color/black"
-                android:textColorHint="@color/search_color"
-                android:textSize="@dimen/_12ssp"
-                android:imeOptions="actionSearch"/>
-
-            <LinearLayout
-                android:id="@+id/llSearch"
-                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:gravity="center">
+                android:id="@+id/frame_layout"/>
 
-                <ImageView
-                    android:id="@+id/ivSearch"
-                    android:layout_width="@dimen/_24sdp"
-                    android:layout_height="@dimen/_24sdp"
-                    android:foregroundGravity="center"
-                    android:padding="@dimen/_5sdp"
-                    />
-            </LinearLayout>
-        </RelativeLayout>
+                <!--<RelativeLayout
+                    android:id="@+id/rlserach"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/rectanglegrey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rlserach"
-            tools:listitem="@layout/item_row" />
-        <include
-            android:id="@+id/empty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_200sdp"
-            android:visibility="gone"
-            layout="@layout/empty_layout" />
-        </LinearLayout>
+                    <EditText
+                        android:id="@+id/edt_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/rect_semore"
+                        android:hint="Search Model"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="@dimen/_60sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/search_color"
+                        android:textSize="@dimen/_12ssp"
+                        android:imeOptions="actionSearch"/>
+
+                    <LinearLayout
+                        android:id="@+id/llSearch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ivSearch"
+                            android:layout_width="@dimen/_24sdp"
+                            android:layout_height="@dimen/_24sdp"
+                            android:foregroundGravity="center"
+                            android:padding="@dimen/_5sdp"
+                            />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlserach"
+                    tools:listitem="@layout/item_row" />
+                <include
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_200sdp"
+                    android:visibility="gone"
+                    layout="@layout/empty_layout" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <!-- this the navigation view which draws and shows the navigation drawer -->
         <!-- include the menu created in the menu folder -->
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
             app:menu="@menu/navigation_menu" />
 
     </androidx.drawerlayout.widget.DrawerLayout>
-    </LinearLayout>
-
 </layout>
