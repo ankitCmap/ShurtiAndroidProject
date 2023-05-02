@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shurtiandroidproject.adapter.RvCatAdapter
 import com.example.shurtiandroidproject.databinding.FragmentHomeBinding
 import com.example.shurtiandroidproject.viewmodel.MainVM
+
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +35,8 @@ class HomeFragment : Fragment() {
 //            textView.text = it
         }
 
+        initializeView()
+
 
 
         return binding.root
@@ -49,4 +53,12 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun initializeView() {
+        binding.rvCat.layoutManager =
+            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        val adapter = RvCatAdapter()
+        binding.rvCat.adapter = adapter
+    }
+
 }
