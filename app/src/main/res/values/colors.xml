@@ -107,6 +107,8 @@
         <item>@color/color7</item>
     </array>
 
+    <color name="add_to_cart_button">#ff0000</color>
+
     <!--text Color-->
     <color name="textColor">#151515</color>
 </resources>
