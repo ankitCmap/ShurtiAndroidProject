@@ -3,20 +3,19 @@ package com.example.shurtiandroidproject.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shurtiandroidproject.R
-import com.makeramen.roundedimageview.RoundedImageView
-import de.hdodenhof.circleimageview.CircleImageView
 
-class RvCatAdapter : RecyclerView.Adapter<RvCatAdapter.ViewHolder>() {
+class PoliticalMarvelsAdapter : RecyclerView.Adapter<PoliticalMarvelsAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.rv_cat_adapter, parent, false)
+            .inflate(R.layout.political_marvals_adapter, parent, false)
 
         return ViewHolder(view)
     }
@@ -41,7 +40,8 @@ class RvCatAdapter : RecyclerView.Adapter<RvCatAdapter.ViewHolder>() {
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val imageView: CircleImageView = itemView.findViewById(R.id.image_view)
-        val textView: TextView = itemView.findViewById(R.id.ItemView)
+
+        val imageView: ImageView = itemView.findViewById(R.id.image_books)
+        val textView: TextView = itemView.findViewById(R.id.text_books_name)
     }
 }
