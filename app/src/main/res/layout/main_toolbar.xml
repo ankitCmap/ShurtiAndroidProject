@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_Container_toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            android:background="@color/actionbarColor"
+            android:theme="@style/Theme.Design.Light"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingVertical="@dimen/_8sdp">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/app_bar"
+                    android:layout_width="397dp"
+                    android:layout_height="?android:attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+                    app:theme="@style/MyCustomToolBarTheme"
+                    tools:ignore="NewApi">
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:src="@drawable/ltb" />
+
+                    <TextView
+                        android:id="@+id/main_toolbbar_SearchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@drawable/border"
+                        android:drawableLeft="@drawable/baseline_search_24"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Search Books, ISBN"
+                        android:textSize="@dimen/_12ssp"
+                        android:drawableRight="@drawable/ic_baseline_document_scanner_24"
+                        android:theme="@style/CustomSearchBar"
+                        app:iconifiedByDefault="false" />
+
+                </androidx.appcompat.widget.Toolbar>
+                <ImageView
+                    android:id="@+id/scan"
+                    android:visibility="gone"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:src="@drawable/scanner"
+                    app:tint="@color/gray" />
+
+                <FrameLayout
+                    android:id="@+id/cartIcon"
+                    android:padding="@dimen/_1sdp"
+                    android:layout_width="?attr/actionBarSize"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_alignParentEnd="true"
+                    android:clickable="true"
+                    android:layout_gravity="center"
+                    android:focusable="true"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_8sdp"
+                        android:visibility="visible"
+                        android:src="@drawable/cart_icon" />
+
+                    <TextView
+                        android:id="@+id/cartCount"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
+                        android:visibility="visible"
+                        android:layout_gravity="right|top"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginRight="13dp"
+                        android:background="@drawable/circle_bg_notification"
+                        android:gravity="center"
+                        android:text="3"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+                </FrameLayout>
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
