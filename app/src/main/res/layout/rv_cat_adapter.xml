@@ -8,7 +8,7 @@
         android:layout_height="@dimen/_120sdp"
         android:orientation="vertical">
 
-        <com.makeramen.roundedimageview.RoundedImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/image_view"
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
