@@ -4,17 +4,8 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/white_bag">
+    android:background="@drawable/ltb_splash">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:text="@string/welcome"
-        android:textColor="@color/cardview_dark_background"
-        android:layout_gravity="center"
-        android:textSize="@dimen/_24sdp"
-        android:gravity="center"/>
     <ProgressBar
         android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
