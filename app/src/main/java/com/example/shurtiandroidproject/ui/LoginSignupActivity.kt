@@ -20,8 +20,8 @@ class LoginSignupActivity :BaseActivity() {
 
     private fun initView() {
         binding.tvskip.setOnClickListener {
-//            BasePreferencesManager.putBoolean(BasePreferencesManager.IS_SKIP,true)
-            val intent = Intent(this@LoginSignupActivity, ChangePasswordActivity::class.java)
+            BasePreferencesManager.putBoolean(BasePreferencesManager.IS_SKIP,true)
+            val intent = Intent(this@LoginSignupActivity, NewMainActivity::class.java)
             startActivity(intent)
             finish()
 

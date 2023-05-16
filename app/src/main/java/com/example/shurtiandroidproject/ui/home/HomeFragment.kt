@@ -50,11 +50,8 @@ class HomeFragment : Fragment() {
         }
 
         initializeView()
-
-
-
+        
         return binding.root
-
 
     }
 

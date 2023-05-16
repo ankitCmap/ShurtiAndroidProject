@@ -1,14 +1,723 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AccountFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".ui.account.AccountFragment">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layout_profile"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/noInternetLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/no_wifi" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="No internet connection!"
+                    android:textColor="@color/colorError"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_dark"
+                    android:text="Retry"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+
+            <ScrollView
+                android:id="@+id/ac_mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="#FAF4F4"
+                android:fillViewport="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:theme="@style/Theme.MaterialComponents.Light">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:elevation="0dp"
+                                app:cardElevation="0dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:cardCornerRadius="360dp">
+
+                                <ImageView
+                                    android:scaleType="fitXY"
+                                    android:id="@+id/ac_ProfileImage"
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp" />
+
+                                <TextView
+                                    android:id="@+id/ac_ImageText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:text=""
+                                    android:textColor="@color/white"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/ac_Username"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text=""
+                                    android:textColor="#151515"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/ac_UserPhone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text=""
+                                    android:textColor="#828282"
+                                    android:textSize="16sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/gotoEditProfile"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:src="@drawable/edit_profile"
+                                app:tint="#828282" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:id="@+id/payLay"
+                            android:orientation="horizontal"
+                            android:padding="15dp">
+
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:elevation="0dp"
+                                app:cardCornerRadius="10dp"
+                                app:cardElevation="0dp"
+                                app:strokeColor="#DED8D8"
+                                app:strokeWidth="1dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/ltb" />
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:maxLines="1"
+                                android:text="Bookchor Pay"
+                                android:textColor="#151515"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/ac_Bc_Pay_Total"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/btn_round"
+                                android:backgroundTint="#4A51CC85"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:maxLines="1"
+                                android:paddingLeft="8dp"
+                                android:paddingTop="5dp"
+                                android:paddingRight="8dp"
+                                android:paddingBottom="5dp"
+                                android:text="₹ 00"
+                                android:textColor="#27AE60"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <ImageButton
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"
+                                android:background="?android:attr/selectableItemBackgroundBorderless"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/payLayGo"
+                                android:padding="0dp"
+                                android:src="@drawable/arrow_right"
+                                app:tint="#828282" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/wishLay"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/my_wishlist" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="My Wishlist"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/orderLay"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/my_order" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="My Orders"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:id="@+id/addressLay"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/my_address" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="My Address"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/scratechLay"
+
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/scratch_cards" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Scratch Cards"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/refer_earn_layout"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="36dp"
+                                    android:layout_height="36dp"
+                                    android:src="@drawable/share" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="@string/refer_earn"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/bc_coins"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/coins_icon" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Bookchor Coins"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:id="@+id/dynamic_menus"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:visibility="gone"
+                                android:id="@+id/couponLay"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/coupon_codes" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Coupon Codes"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:id="@+id/reviewLay"
+
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/my_reviews" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="My Reviews"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:id="@+id/authorLay"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                android:padding="15dp">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/fav_authors" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Fav Authors"
+                                    android:textColor="#151515"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:id="@+id/refer_earn"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="15dp">
+
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:scaleType="fitXY"
+                                android:id="@+id/refer_earn_banner"
+                                android:src="@drawable/help_center" />
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:id="@+id/other_app_layout"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:id="@+id/contact"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackground"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="15dp">
+
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/help_center" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="15dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:maxLines="1"
+                                android:text="Help Center"
+                                android:textColor="#151515"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/white"
+                        android:elevation="1dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:visibility="gone"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:padding="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Notification Preferences"
+                                    android:textColor="#828282"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F2F2F2" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:id="@+id/privacyPolicyLay"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:padding="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Privacy Policy"
+                                    android:textColor="#828282"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F2F2F2" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:id="@+id/logout"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackground"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:padding="15dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="15dp"
+                                    android:fontFamily="@font/poppins_semibold"
+                                    android:maxLines="1"
+                                    android:text="Log Out"
+                                    android:textColor="#828282"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

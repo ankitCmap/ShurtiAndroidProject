@@ -18,12 +18,12 @@ class SplashActivity : BaseActivity() {
         lifecycleScope.launch {
             delay(3000L)
             if (BasePreferencesManager.getBoolean(BasePreferencesManager.IS_LOGIN, false)
-                || BasePreferencesManager.getBoolean(BasePreferencesManager.IS_SKIP, false)) {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                ||BasePreferencesManager.getBoolean(BasePreferencesManager.IS_SKIP, false)) {
+                val intent = Intent(this@SplashActivity, NewMainActivity::class.java)
                 startActivity(intent)
                 finish()
-            } else {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            }else {
+                val intent = Intent(this@SplashActivity, LoginSignupActivity::class.java)
                 startActivity(intent)
                 finish()
             }

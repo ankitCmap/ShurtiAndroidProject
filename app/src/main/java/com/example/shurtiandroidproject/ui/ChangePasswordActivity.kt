@@ -21,11 +21,10 @@ class ChangePasswordActivity :BaseActivity() {
 
     private fun initView() {
         binding.btnUpdatePassword.setOnClickListener {
-//            BasePreferencesManager.putBoolean(BasePreferencesManager.IS_SKIP,true)
-            val intent = Intent(this@ChangePasswordActivity, DashbordActivity::class.java)
+            BasePreferencesManager.putBoolean(BasePreferencesManager.IS_SKIP,true)
+            val intent = Intent(this@ChangePasswordActivity, NewMainActivity::class.java)
             startActivity(intent)
             finish()
-
         }
     }
 }

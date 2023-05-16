@@ -49,6 +49,9 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ShurtiAndroidProject.NoActionBar" />
+        <activity
+            android:name="com.example.shurtiandroidproject.ui.NewMainActivity"
+            android:exported="true"/>
 
     </application>
 

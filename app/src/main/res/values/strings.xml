@@ -26,10 +26,260 @@
     <string name="search">Search</string>
     <string name="profile">Profile</string>
 
+
+    <string name="access_code">Access Code</string>
+    <string name="pay_opt">Payment Option</string>
+    <string name="card_type">Card Type</string>
+    <string name="pay_button">Pay</string>
+    <string name="next_button">Next</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="country">Country</string>
+    <string name="billingAddress">Billing Address</string>
+    <string name="deliveryAddress">Delivery Address</string>
+    <string name="state">State</string>
+    <string name="city">City</string>
+    <string name="zip">Zip</string>
+    <string name="tel">Telephone</string>
+    <string name="email">Email Id</string>
+    <string name="merchant_id">Merchant Id</string>
+    <string name="currency">Currency</string>
+    <string name="amount">Amount</string>
+    <string name="redirect_url">Redirect Url</string>
+    <string name="cancel_url">Cancel Url</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_cvv">Card CVV</string>
+    <string name="expiry_month">Expiry Month</string>
+    <string name="expiry_year">Expiry Year</string>
+    <string name="card_details">Card Details</string>
+    <string name="issuing_bank">Issuing Bank</string>
+    <string name="rsa_url">RSA Key Url</string>
+    <string name="customer_identifier">Customer Identifier</string>
+    <string name="emi_banks">EMI Banks</string>
+    <string name="emi_card_name">Card Name</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_id">921375674644660</string>
+    <string name="protocol_app_id">fb921375674644660</string>
+    <string name="next">Next</string>
+    <string name="title_activity_sub">SubActivity</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="alphabets">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</string>
+    <string name="alphabetsNumbers">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="emailDigits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@_.-</string>
+    <string name="everythingWithoutSpace">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="username">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .</string>
+    <string name="common">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_. \n,-/()</string>
+    <string name="addressline">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_. \n,-/()</string>
+    <string name="ifsc">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789</string>
+    <string name="quantity_msg">The maximum quantity is over</string>
+    <string name="checkTerms">
+        \n1.Please Send the copy of Cheque at info@bookchor.com.\n
+        2.Books will be dispatched once we will receive full payment. Partial payment will not be considered.\n
+    </string>
+    <string name="codTerms">
+        \n1. Cash on Delivery is not yet available for all pin codes. This is due to limitations of courier services we use.\n
+        2. Cash on Delivery will not be available if your order value exceeds Rs. 3,000.\n
+        3. All orders placed using cash on delivery as payment method will be verified through a call before shipment.\n
+    </string>
+    <string-array name="months">
+        <item>January (01)</item>
+        <item>February (02)</item>
+        <item>March (03)</item>
+        <item>April (04)</item>
+        <item>May (05)</item>
+        <item>June (06)</item>
+        <item>July (07)</item>
+        <item>August (08)</item>
+        <item>September (09)</item>
+        <item>October (10)</item>
+        <item>November (11)</item>
+        <item>December (12)</item>
+    </string-array>
+    <string-array name="address">
+        <item>Home</item>
+        <item>Company</item>
+        <item>Friend</item>
+        <item>College/University</item>
+    </string-array>
+    <string-array name="postVisibility">
+        <item>All Houses</item>
+        <item>Friends</item>
+        <item>Only Me</item>
+    </string-array>
+    <string-array name="condition">
+        <item>Old</item>
+        <item>New</item>
+    </string-array>
+    <string-array name="institutionType">
+        <item>Institution Type</item>
+        <item>Government School</item>
+        <item>Private School</item>
+        <item>Engineering College</item>
+        <item>Medical College</item>
+        <item>Management College</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="tabs">
+        <item>CATEGORIES</item>
+        <item>HOME</item>
+        <item>EARN WITH BC</item>
+        <item>NEWLY ADDED</item>
+        <item>FEATURED BOOKS</item>
+        <item>LISTED BOOKS</item>
+    </string-array>
+    <string-array name="vendorFilters">
+        <item>Price -- high to low</item>
+        <item>Price -- low to high</item>
+        <item>Vendor Rating</item>
+    </string-array>
+    <string-array name="quantity">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="rentDuration">
+        <item>3 Months</item>
+        <item>6 Months</item>
+    </string-array>
+    <string-array name="gender">
+        <item> </item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <string-array name="tabsProducts">
+        <item>Overview</item>
+        <item>Details</item>
+        <item>User Ratings</item>
+        <item>GoodReads Reviews</item>
+    </string-array>
+    <string-array name="tabsProductsNew">
+        <item>Description</item>
+        <item>Highlights</item>
+        <!--       <item>More Info</item>-->
+    </string-array>
+    <string-array name="tabsAuthor">
+        <item>Details</item>
+        <item>Books</item>
+    </string-array>
+    <string-array name="tabsReaderboard">
+        <item>All Time</item>
+        <item>This Month</item>
+    </string-array>
+    <string-array name="tabsSearch">
+        <item>People</item>
+        <item>Tags</item>
+    </string-array>
+    <string-array name="tabsNotifications">
+        <item>Notifications</item>
+        <item>Requests</item>
+        <item>Following</item>
+    </string-array>
+    <string-array name="tabsTbr">
+        <item>TBR</item>
+        <item>Read</item>
+        <item>Suggested</item>
+    </string-array>
+    <string-array name="mainSearch">
+        <item>BookChor</item>
+        <item>User Listings</item>
+    </string-array>
+    <string-array name="tabsSocial">
+        <item>Feed</item>
+        <item>Profile</item>
+        <item>Post</item>
+    </string-array>
+    <string name="title_activity_categories">Categories</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_maps_key">123</string>
+    <string name="title_activity_product_detail">ProductDetail</string>
+    <string name="title_activity_author">Author</string>
+    <string name="title_activity_vendors">Vendors</string>
+    <string name="title_activity_vendor_item">vendor_item</string>
+    <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_forgot_password">ForgotPassword</string>
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="title_activity_view_book_reviews">ViewBookReviews</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_account">Account</string>
+    <string name="title_activity_contact_us">ContactUs</string>
+    <string name="title_activity_loyalty_program">LoyaltyProgram</string>
+    <string name="title_activity_points_detail">PointsDetail</string>
+    <string name="title_activity_wishlist">Wishlist</string>
+    <string name="title_activity_orders">Orders</string>
+    <string name="title_activity_address_book">AddressBook</string>
+    <string name="title_activity_new_address">NewAddress</string>
+    <string name="title_activity_refer">Refer</string>
+    <string name="title_activity_referred_friends">ReferredFriends</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_request_abook">RequestABook</string>
+    <string name="title_activity_add_request_book">AddRequestBook</string>
+    <string name="title_activity_sell_book">SellBook</string>
+    <string name="title_activity_listed_books">ListedBooks</string>
+    <string name="title_activity_listed_book_detail">ListedBookDetail</string>
+    <string name="title_activity_faq">FAQ</string>
+    <string name="title_activity_checkout">Checkout</string>
+    <string name="title_activity_events">Events</string>
+    <string name="title_activity_schedule_book_fair">ScheduleBookFair</string>
+    <string name="title_activity_about_us">AboutUs</string>
+    <string name="title_activity_horizontal_view">HorizontalViewActivity</string>
+    <string name="title_activity_subcategories">Subcategories</string>
+    <string name="title_activity_sub_sub_categories">SubSubCategories</string>
+    <string name="title_activity_donate_books">DonateBooks</string>
+    <string name="title_activity_image_web_view">ImageWebView</string>
+    <string name="title_activity_donate_book_form">DonateBookForm</string>
+    <string name="title_activity_donation_project">DonationProject</string>
+    <string name="title_activity_credit_card">CreditCardActivity</string>
+    <string name="title_activity_ccavenue_web_view">CCAvenueWebView</string>
+    <string name="title_activity_debit_card">DebitCardActivity</string>
+    <string name="title_activity_saved_cards">SavedCards</string>
+    <string name="title_activity_new_card">NewCard</string>
+    <string name="title_activity_cash_card">CashCard</string>
+    <string name="title_activity_mobile_payments">MobilePayments</string>
+    <string name="title_activity_online_wallets">OnlineWallets</string>
+    <string name="title_activity_net_banking">NetBanking</string>
+    <string name="title_activity_coupon_code">CouponCode</string>
+    <string name="title_activity_cheque_payment">ChequePayment</string>
+    <string name="title_activity_gift_card">GiftCard</string>
+    <string name="title_activity_wallet">Wallet</string>
+    <string name="title_activity_wallet_detail">WalletDetail</string>
+    <string name="title_activity_order_detail">OrderDetail</string>
+    <string name="title_activity_cancel_order">CancelOrder</string>
+    <string name="title_activity_tracking_web_view">TrackingWebView</string>
+    <string name="title_activity_order_return">OrderReturn</string>
+    <string name="title_activity_order_replace">OrderReplace</string>
+    <string name="title_activity_status">StatusActivity</string>
+    <string name="title_activity_order_status">OrderStatus</string>
+    <string name="title_activity_author_books">AuthorBooks</string>
+    <string name="title_activity_author_detail">AuthorDetail</string>
+    <string name="title_activity_cod">CODActivity</string>
+    <string name="title_activity_goodreads_reviews">GoodreadsReviews</string>
+    <string name="title_activity_horizontal_view_product">HorizontalViewProduct</string>
+    <string name="title_activity_vertical_view_product">VerticalViewProduct</string>
+    <string name="title_activity_slate">Slate</string>
+    <string name="title_activity_earn_with_bc">EarnWithBC</string>
+    <string name="title_activity_testimonials">Testimonials</string>
+    <string name="title_activity_pay_uweb_view">PayUWebView</string>
+    <string name="title_activity_school_demo">SchoolDemo</string>
+    <string name="title_activity_school_profile_genre">SchoolProfileGenre</string>
+    <string name="channel_description">Notifications</string>
+    <string name="channel_name">Notification</string>
+    <string name="default_notification_channel_id">channel_1</string>
+    <string name="terms_condtion">General Terms &amp; Conditions</string>
     <string name="home">Home</string>
     <string name="categories">Categories</string>
     <string name="deals">Stores</string>
     <string name="account">Account</string>
+    <string name="can_not_use_specail">You can not use special characters on</string>
+    <string name="google_maps_api_key">AIzaSyAJttOO8Ssy3AqbWRBS42iqFCm4gkpa42I</string>
+    <string name="refer_earn"><![CDATA[Refer & Earn]]></string>
     <string name="cart">Cart</string>
+    <string name="ltb_app_launch_url">https://staging.lockthebox.in/webservices/app_launch.php</string>
+    <string name="ltb_main_url">https://lockthebox.in/home.php</string>
 
 </resources>
