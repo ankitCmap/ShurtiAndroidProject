@@ -6,20 +6,20 @@
         android:icon="@drawable/home_icon"
         android:title="@string/home"/>
 
-    <item
+   <!-- <item
         android:id="@+id/navigation_category"
         android:icon="@drawable/category_bottom_icon"
-        android:title="@string/categories"/>
+        android:title="@string/categories"/>-->
     <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/cart_bottom_menu"
         android:title="@string/cart"/>
 
-    <item
+   <!-- <item
         android:id="@+id/navigation_store"
         android:icon="@drawable/store_bottom_icon"
         android:title="@string/deals"/>
-
+-->
 
     <item
         android:id="@+id/navigation_accounts"

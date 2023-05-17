@@ -76,6 +76,7 @@
     <color name="schoolLine">#E5E5E5</color>
     <color name="color1">#E91E63</color>
     <color name="green_trans">#4A51CC85</color>
+    <color name="trans">#0051CC85</color>
     <color name="red_trans">#4ABF360C</color>
 
     <color name="green_text">#27AE60</color>
@@ -117,6 +118,7 @@
 
     <color name="ltb_color">#F6DB5A</color>
     <color name="gray">#707a75</color>
+    <color name="mdtp_dark_gray">#323232</color>
 
 
 </resources>

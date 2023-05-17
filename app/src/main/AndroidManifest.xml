@@ -43,7 +43,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.shurtiandroidproject.ui.ChangePasswordActivity" />
+        <activity android:name="com.example.shurtiandroidproject.ui.ChangePasswordActivity"
+            android:exported="true"/>
         <activity
             android:name="com.example.shurtiandroidproject.ui.DashbordActivity"
             android:exported="true"
@@ -51,6 +52,15 @@
             android:theme="@style/Theme.ShurtiAndroidProject.NoActionBar" />
         <activity
             android:name="com.example.shurtiandroidproject.ui.NewMainActivity"
+            android:exported="true"/>
+        <activity
+            android:name="com.example.shurtiandroidproject.ui.SignUpActivity"
+            android:exported="true"/>
+        <activity android:name="com.example.shurtiandroidproject.ui.LoginWithPasswordActivity"
+            android:exported="true"/>
+        <activity android:name="com.example.shurtiandroidproject.ui.OtpVerificationActivity"
+            android:exported="true"/>
+        <activity android:name="com.example.shurtiandroidproject.ui.CartActivity"
             android:exported="true"/>
 
     </application>

@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:context=".ui.home.HomeFragment">
 
@@ -30,7 +30,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rlserach"
-                tools:listitem="@layout/item_row" />
+                tools:itemCount="8"/>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -39,8 +39,7 @@
                 android:scaleType="fitXY"/>
 
 
-            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/_5sdp"
@@ -54,15 +53,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_popular_books"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/rlserach"
-                        tools:listitem="@layout/item_row" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -102,8 +92,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/_5sdp"
@@ -530,6 +519,16 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/_200sdp"
                 android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_popular_books"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rlserach"
+                tools:listitem="@layout/item_row" />
         </LinearLayout>
     </ScrollView>
 </layout>

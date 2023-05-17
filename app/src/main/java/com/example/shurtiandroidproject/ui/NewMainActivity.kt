@@ -1,24 +1,17 @@
 package com.example.shurtiandroidproject.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
-import android.view.View.GONE
-import android.view.View.VISIBLE
-import android.widget.FrameLayout
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.example.shurtiandroidproject.R
 import com.example.shurtiandroidproject.databinding.ActivityDashMainBinding
-import com.example.shurtiandroidproject.databinding.ActivityMainBinding
 import com.example.shurtiandroidproject.roomdatabase.BaseActivity
 import com.example.shurtiandroidproject.ui.account.AccountFragment
 import com.example.shurtiandroidproject.ui.home.HomeFragment
 import com.example.shurtiandroidproject.viewmodel.MainVM
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlin.system.exitProcess
 
@@ -41,18 +34,19 @@ class NewMainActivity : BaseActivity() {
                     replaceFragment(HomeFragment(),"Home")
                     true
                 }
-                R.id.navigation_category -> {
+               /* R.id.navigation_category -> {
                     replaceFragment(HomeFragment(),"Home")
                     true
-                }
+                }*/
                 R.id.navigation_cart -> {
-                    replaceFragment(HomeFragment(),"Home")
+                    val i = Intent(this@NewMainActivity, CartActivity::class.java)
+                    startActivity(i)
                     true
                 }
-                R.id.navigation_store -> {
+            /*    R.id.navigation_store -> {
                     replaceFragment(HomeFragment(),"Home")
                     true
-                }
+                }*/
                 R.id.navigation_accounts -> {
                     replaceFragment(AccountFragment(),"Account")
                     true
