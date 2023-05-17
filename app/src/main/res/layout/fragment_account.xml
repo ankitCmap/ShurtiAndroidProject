@@ -148,7 +148,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
 
-                    <com.google.android.material.card.MaterialCardView
+                    <!--<com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -228,7 +228,7 @@
                                 app:tint="#828282" />
 
                         </LinearLayout>
-                    </com.google.android.material.card.MaterialCardView>
+                    </com.google.android.material.card.MaterialCardView>-->
 
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
@@ -246,7 +246,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <LinearLayout
+                           <!-- <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
@@ -275,7 +275,7 @@
                                     android:textColor="#151515"
                                     android:textSize="14sp" />
 
-                            </LinearLayout>
+                            </LinearLayout>-->
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -363,7 +363,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:maxLines="1"
-                                    android:text="Scratch Cards"
+                                    android:text="My Preference"
                                     android:textColor="#151515"
                                     android:textSize="14sp" />
 
@@ -423,7 +423,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:maxLines="1"
-                                    android:text="Bookchor Coins"
+                                    android:text="Rewards"
                                     android:textColor="#151515"
                                     android:textSize="14sp" />
 
@@ -497,7 +497,7 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
+                            <!--<LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:clickable="true"
@@ -525,7 +525,7 @@
                                     android:textColor="#151515"
                                     android:textSize="14sp" />
 
-                            </LinearLayout>
+                            </LinearLayout>-->
 
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -541,26 +541,6 @@
                         app:cardCornerRadius="5dp"
                         app:cardElevation="1dp">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:id="@+id/refer_earn"
-                            android:focusable="true"
-                            android:foreground="?attr/selectableItemBackground"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="15dp">
-
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="140dp"
-                                android:scaleType="fitXY"
-                                android:id="@+id/refer_earn_banner"
-                                android:src="@drawable/help_center" />
-
-                        </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
