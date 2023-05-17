@@ -62,6 +62,7 @@
             android:exported="true"/>
         <activity android:name="com.example.shurtiandroidproject.ui.CartActivity"
             android:exported="true"/>
+        <activity android:name="com.example.shurtiandroidproject.ui.EditProfileActivity" />
 
     </application>
 
