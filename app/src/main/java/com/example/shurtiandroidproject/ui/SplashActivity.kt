@@ -10,7 +10,6 @@ import com.example.shurtiandroidproject.roomdatabase.BaseActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

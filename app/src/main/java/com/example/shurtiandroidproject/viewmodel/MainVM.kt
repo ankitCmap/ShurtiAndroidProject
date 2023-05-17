@@ -55,7 +55,7 @@ class MainVM(private val mainRepo: MainRepository) :
                 if (liveData != null)
                     liveMeals = ArrayList()
                 for (item in liveData) {
-                    getlocalData(item)
+//                    getlocalData(item)
                 }
                 dataList.postValue(liveMeals)
             }
@@ -97,68 +97,68 @@ class MainVM(private val mainRepo: MainRepository) :
         mainRepo.insertData(context, item)
     }
 
-    fun getlocalData(item: RoomModel) {
-
-        item.let {
-            val meals = Meals(
-                it.idMeal,
-                it.strMeal,
-                it.strDrinkAlternate,
-                it.strCategory,
-                it.strArea,
-                it.strInstructions,
-                it.strMealThumb,
-                it.strTags,
-                it.strYoutube,
-                it.strIngredient1,
-                it.strIngredient2,
-                it.strIngredient3,
-                it.strIngredient4,
-                it.strIngredient4,
-                it.strIngredient6,
-                it.strIngredient7,
-                it.strIngredient8,
-                it.strIngredient9,
-                it.strIngredient10,
-                it.strIngredient11,
-                it.strIngredient12,
-                it.strIngredient13,
-                it.strIngredient14,
-                it.strIngredient15,
-                it.strIngredient16,
-                it.strIngredient17,
-                it.strIngredient18,
-                it.strIngredient19,
-                it.strIngredient20,
-                it.strMeasure1,
-                it.strMeasure2,
-                it.strMeasure3,
-                it.strMeasure4,
-                it.strMeasure5,
-                it.strMeasure6,
-                it.strMeasure7,
-                it.strMeasure7,
-                it.strMeasure9,
-                it.sstrMeasure10,
-                it.strMeasure11,
-                it.strMeasure12,
-                it.strMeasure13,
-                it.strMeasure14,
-                it.strMeasure15,
-                it.strMeasure15,
-                it.strMeasuret16,
-                it.strMeasure17,
-                it.strMeasure19,
-                it.strMeasure20,
-                it.strSource,
-                it.strImageSource,
-                it.strCreativeCommonsConfirmed,
-                it.dateModified
-            )
-            liveMeals?.add(meals)
-        }
-
-    }
+//    fun getlocalData(item: RoomModel) {
+//
+//        item.let {
+//            val meals = Meals(
+//                it.idMeal,
+//                it.strMeal,
+//                it.strDrinkAlternate,
+//                it.strCategory,
+//                it.strArea,
+//                it.strInstructions,
+//                it.strMealThumb,
+//                it.strTags,
+//                it.strYoutube,
+//                it.strIngredient1,
+//                it.strIngredient2,
+//                it.strIngredient3,
+//                it.strIngredient4,
+//                it.strIngredient4,
+//                it.strIngredient6,
+//                it.strIngredient7,
+//                it.strIngredient8,
+//                it.strIngredient9,
+//                it.strIngredient10,
+//                it.strIngredient11,
+//                it.strIngredient12,
+//                it.strIngredient13,
+//                it.strIngredient14,
+//                it.strIngredient15,
+//                it.strIngredient16,
+//                it.strIngredient17,
+//                it.strIngredient18,
+//                it.strIngredient19,
+//                it.strIngredient20,
+//                it.strMeasure1,
+//                it.strMeasure2,
+//                it.strMeasure3,
+//                it.strMeasure4,
+//                it.strMeasure5,
+//                it.strMeasure6,
+//                it.strMeasure7,
+//                it.strMeasure7,
+//                it.strMeasure9,
+//                it.sstrMeasure10,
+//                it.strMeasure11,
+//                it.strMeasure12,
+//                it.strMeasure13,
+//                it.strMeasure14,
+//                it.strMeasure15,
+//                it.strMeasure15,
+//                it.strMeasuret16,
+//                it.strMeasure17,
+//                it.strMeasure19,
+//                it.strMeasure20,
+//                it.strSource,
+//                it.strImageSource,
+//                it.strCreativeCommonsConfirmed,
+//                it.dateModified
+//            )
+//            liveMeals?.add(meals)
+//        }
+//
+//    }
 
     private fun handleLogInData(data1: MainModel?, check: Boolean) {
         if (data1 != null) {
