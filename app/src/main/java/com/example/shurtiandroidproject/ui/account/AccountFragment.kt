@@ -1,14 +1,14 @@
 package com.example.shurtiandroidproject.ui.account
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.shurtiandroidproject.databinding.FragmentAccountBinding
-import com.example.shurtiandroidproject.databinding.FragmentGalleryBinding
+import com.example.shurtiandroidproject.ui.EditProfileActivity
 
 class AccountFragment : Fragment() {
 
@@ -27,12 +27,23 @@ class AccountFragment : Fragment() {
             ViewModelProvider(this)[AccountViewModel::class.java]
 
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
-
-//        val textView: TextView = binding.textGallery
-//        galleryViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        initView()
         return binding.root
+    }
+
+    private fun initView() {
+        binding.apply {
+            gotoEditProfile.setOnClickListener {
+                val intent = Intent(requireActivity(), EditProfileActivity::class.java)
+                intent.putExtra("ac_name", "nameText")
+                intent.putExtra("ac_phone", "phoneText")
+                intent.putExtra("ac_gender", "genderText")
+                intent.putExtra("ac_email", "emailid")
+                intent.putExtra("image", "imageUrl")
+                startActivity(intent)
+                requireActivity().overridePendingTransition(0, 0)
+            }
+        }
     }
 
     override fun onDestroyView() {
