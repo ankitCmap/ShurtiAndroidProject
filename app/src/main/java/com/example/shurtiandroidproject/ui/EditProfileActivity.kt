@@ -1,7 +1,9 @@
 package com.example.shurtiandroidproject.ui
 
+import android.R
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import com.example.shurtiandroidproject.databinding.ActivityEditProfileBinding
 import com.example.shurtiandroidproject.roomdatabase.BaseActivity
 
@@ -29,5 +31,13 @@ class EditProfileActivity:BaseActivity() {
             supportActionBar!!.setDisplayShowHomeEnabled(true)
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        if (id == R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
