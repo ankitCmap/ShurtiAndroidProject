@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_120sdp"
                 android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -62,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
                 app:cardPreventCornerOverlap="true"
@@ -75,16 +77,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Age 1-4 kids"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_book_all_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
                         tools:listitem="@layout/item_row" />
 
@@ -98,6 +103,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -109,16 +115,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Best from Crime an Thriller"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_seller_health_book"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
                         tools:listitem="@layout/item_row" />
 
@@ -133,6 +142,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -144,14 +154,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Best from Young Audit"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_leadership_book"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -168,6 +181,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -179,14 +193,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Best from non Fiction"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_of_cecelia_ahem"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -203,6 +220,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -214,14 +232,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Best from Children"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_new_arrival"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -238,6 +259,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -249,14 +271,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Popular Books"
+                        android:text="Best from Literature and Fiction"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_feminists"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -273,6 +298,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -285,13 +311,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_political_marvels"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -308,6 +337,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -320,13 +350,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_incredible_india"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -343,6 +376,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -355,13 +389,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_for_crime_and_thriller"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -378,6 +415,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -390,13 +428,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_from_young_audit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -413,6 +454,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -425,13 +467,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_from_non_fiction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -448,6 +493,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -460,6 +506,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
 
@@ -467,7 +515,8 @@
                         android:id="@+id/rv_best_from_children"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -484,6 +533,7 @@
                 android:elevation="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_4sdp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="true">
 
@@ -496,13 +546,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Popular Books"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_12sdp"
                         android:textColor="@color/black" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_best_from_literature_and_fiction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:paddingBottom="@dimen/_10sdp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rlserach"
@@ -524,7 +577,8 @@
                 android:id="@+id/rv_popular_books"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rlserach"
