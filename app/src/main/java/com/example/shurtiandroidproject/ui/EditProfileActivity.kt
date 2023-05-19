@@ -20,7 +20,7 @@ class EditProfileActivity:BaseActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         val i = Intent(this@EditProfileActivity, NewMainActivity::class.java)
-        i.putExtra("position", "3")
+//        i.putExtra("position", "3")
         startActivity(i)
         finish()
     }

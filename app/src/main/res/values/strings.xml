@@ -281,5 +281,10 @@
     <string name="cart">Cart</string>
     <string name="ltb_app_launch_url">https://staging.lockthebox.in/webservices/app_launch.php</string>
     <string name="ltb_main_url">https://lockthebox.in/home.php</string>
+    <string name="shortlisted_books">Shortlisted Books</string>
+    <string name="book_will_be_automatically"><b>Note :</b>Books will be automatically removed after 3 hours</string>
+    <string name="your_selected_box">Your Selected Box</string>
+    <string name="_0_occupied">0% Occupied</string>
+    <string name="select_your_box">Select your box</string>
 
 </resources>

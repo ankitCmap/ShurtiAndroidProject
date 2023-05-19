@@ -3,6 +3,7 @@ package com.example.shurtiandroidproject.ui
 import android.content.Intent
 import android.os.Bundle
 import com.example.shurtiandroidproject.databinding.ActivityCartBinding
+import com.example.shurtiandroidproject.helper.CartBottomSheetDialog
 import com.example.shurtiandroidproject.roomdatabase.BaseActivity
 
 class CartActivity:BaseActivity() {
@@ -18,12 +19,17 @@ class CartActivity:BaseActivity() {
 
     private fun initView() {
         binding.apply {
-            backpressPay.setOnClickListener {
+            ivBack.setOnClickListener {
                 val i = Intent(this@CartActivity, NewMainActivity::class.java)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(i)
                 finish()
+            }
+
+            ivAdd.setOnClickListener {
+                val modal = CartBottomSheetDialog()
+                supportFragmentManager.let { modal.show(it, CartBottomSheetDialog.TAG) }
             }
         }
 
