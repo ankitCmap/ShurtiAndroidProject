@@ -286,5 +286,6 @@
     <string name="your_selected_box">Your Selected Box</string>
     <string name="_0_occupied">0% Occupied</string>
     <string name="select_your_box">Select your box</string>
+    <string name="_0_books_added">0 books added in your box(s)</string>
 
 </resources>

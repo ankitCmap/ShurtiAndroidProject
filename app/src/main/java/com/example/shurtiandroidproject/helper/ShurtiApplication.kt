@@ -9,6 +9,10 @@ class ShurtiApplication : Application() {
     var mInstance: ShurtiApplication? = null
     var mContext: Context? = null
 
+    var s:Int?=null
+    var m:Int?=null
+    var l:Int?=null
+
     init {
         instance = this
     }
@@ -16,6 +20,8 @@ class ShurtiApplication : Application() {
     companion object {
         @SuppressLint("StaticFieldLeak")
          var instance: ShurtiApplication? = null
+
+
     }
 
     override fun onCreate() {
