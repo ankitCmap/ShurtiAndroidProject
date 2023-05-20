@@ -9,9 +9,9 @@ class ShurtiApplication : Application() {
     var mInstance: ShurtiApplication? = null
     var mContext: Context? = null
 
-    var s:Int?=null
-    var m:Int?=null
-    var l:Int?=null
+    var s:Int?=0
+    var m:Int?=0
+    var l:Int?=0
 
     init {
         instance = this
