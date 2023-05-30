@@ -26,7 +26,7 @@ class NewMainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityDashMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        try {
+
             if (intent.getStringExtra("position") != null) {
                 when (intent.getStringExtra("position")!!.toInt()) {
                     2 -> replaceFragment(AccountFragment(),"Account")
@@ -34,9 +34,7 @@ class NewMainActivity : BaseActivity() {
             } else {
                 replaceFragment(HomeFragment(),"Home")
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
