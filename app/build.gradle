@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.shurtiandroidproject'
+    namespace 'com.lock.the.box'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.shurtiandroidproject"
+        applicationId "com.lock.the.box"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -34,7 +34,7 @@ android {
     productFlavors {
         internal {
             dimension "environment"
-            buildConfigField 'String', 'BASE_URL', '"https://www.themealdb.com/api/json/v1/1/"'
+            buildConfigField 'String', 'BASE_URL', '"https://staging.lockthebox.in/webservices/"'
         }
     }
     compileOptions {

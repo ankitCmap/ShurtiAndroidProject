@@ -3,10 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -20,22 +16,28 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPage"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="200dp"
+                android:visibility="gone"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                app:srcCompat="@drawable/login_main"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="8dp"
@@ -67,10 +69,10 @@
 
                     android:orientation="horizontal">
 
-                    <LinearLayout
+                    <View
                         android:layout_width="5dp"
                         android:layout_height="50dp"
-                        android:background="@color/colorSplash"></LinearLayout>
+                        android:background="@color/colorSplash"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -248,10 +250,10 @@
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <LinearLayout
+                    <View
                         android:layout_width="5dp"
                         android:layout_height="50dp"
-                        android:background="@color/colorSplash"></LinearLayout>
+                        android:background="@color/colorSplash"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -282,14 +284,13 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="80"
                                 android:fontFamily="sans-serif-light"
-                                android:text="We have sent 4 digit OTP on 8906883060 "
                                 android:textColor="@color/mdtp_dark_gray" />
 
                             <TextView
                                 android:id="@+id/change_num"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="20dp"
+                                android:layout_marginStart="20dp"
                                 android:layout_weight="20"
                                 android:fontFamily="sans-serif-light"
                                 android:text="Change"

@@ -7,7 +7,7 @@
 
 
     <application
-        android:name=".helper.ShurtiApplication"
+        android:name="com.lock.the.box.helper.ShurtiApplication"
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,23 +17,23 @@
         android:theme="@style/Theme.ShurtiAndroidProject"
         tools:targetApi="31">
         <activity
-            android:name=".ui.DetailsActivity"
+            android:name="com.lock.the.box.ui.DetailsActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.SocialActivity"
+            android:name="com.lock.the.box.ui.SocialActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.lock.the.box.ui.MainActivity"
             android:exported="false"
             android:theme="@style/MainActivityThem"/>
 
-        <activity android:name=".ui.LoginSignupActivity"
+        <activity android:name="com.lock.the.box.ui.LoginSignupActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.lock.the.box.ui.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.ShurtiAndroidProject">
             <intent-filter>
@@ -43,24 +43,24 @@
         </activity>
 
         <activity
-            android:name="com.example.shurtiandroidproject.ui.ChangePasswordActivity"
+            android:name="com.lock.the.box.ui.ChangePasswordActivity"
             android:exported="true"/>
 
 
 
         <activity
-            android:name="com.example.shurtiandroidproject.ui.NewMainActivity"
+            android:name="com.lock.the.box.ui.NewMainActivity"
             android:exported="true"/>
         <activity
-            android:name="com.example.shurtiandroidproject.ui.SignUpActivity"
+            android:name="com.lock.the.box.ui.SignUpActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.LoginWithPasswordActivity"
+        <activity android:name="com.lock.the.box.ui.LoginWithPasswordActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.OtpVerificationActivity"
+        <activity android:name="com.lock.the.box.ui.OtpVerificationActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.CartActivity"
+        <activity android:name="com.lock.the.box.ui.CartActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.EditProfileActivity" />
+        <activity android:name="com.lock.the.box.ui.EditProfileActivity" />
 
     </application>
 
