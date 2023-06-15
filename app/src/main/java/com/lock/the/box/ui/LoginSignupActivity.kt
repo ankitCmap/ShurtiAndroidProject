@@ -65,7 +65,6 @@ class LoginSignupActivity : BaseActivity() {
             call.enqueue(object : CallbackManager<BaseResponseData>() {
                 override fun onSuccess(o: Any) {
                     val responceAuthModel: BaseResponseData = o as BaseResponseData
-                    ToastUtils.showLongToast(responceAuthModel.message)
 //                    BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                     val i = Intent(this@LoginSignupActivity, SignUpActivity::class.java)
 //                    i.putExtra("loginFor", loginFor)
