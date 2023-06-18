@@ -23,6 +23,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+
                     android:src="@drawable/no_wifi" />
 
                 <TextView
@@ -83,11 +84,19 @@
                                 android:layout_height="wrap_content"
                                 app:cardCornerRadius="360dp">
 
-                                <ImageView
+                                <!--<ImageView
                                     android:scaleType="fitXY"
                                     android:id="@+id/ac_ProfileImage"
                                     android:layout_width="60dp"
-                                    android:layout_height="60dp" />
+                                    android:layout_height="60dp"
+                                    />-->
+                                <com.makeramen.roundedimageview.RoundedImageView
+                                    android:layout_width="@dimen/_60sdp"
+                                    android:layout_height="@dimen/_60sdp"
+                                    android:id="@+id/imageView1"
+                                    android:padding="@dimen/_5sdp"
+                                    android:src="@drawable/facebook_logo"
+                                    android:scaleType="fitCenter" />
 
                                 <TextView
                                     android:id="@+id/ac_ImageText"
@@ -95,7 +104,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:fontFamily="@font/poppins_semibold"
-                                    android:text=""
+                                    android:text="A"
                                     android:textColor="@color/white"
                                     android:textSize="28sp"
                                     android:textStyle="bold" />
@@ -116,7 +125,7 @@
                                     android:layout_gravity="center_vertical"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:maxLines="1"
-                                    android:text=""
+                                    android:text="Ankit Singh"
                                     android:textColor="#151515"
                                     android:textSize="18sp"
                                     android:textStyle="bold" />
@@ -128,7 +137,7 @@
                                     android:layout_gravity="center_vertical"
                                     android:fontFamily="@font/poppins_semibold"
                                     android:maxLines="1"
-                                    android:text=""
+                                    android:text="+915655655655"
                                     android:textColor="#828282"
                                     android:textSize="16sp"
                                     android:textStyle="bold" />

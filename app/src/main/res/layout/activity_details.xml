@@ -7,7 +7,7 @@
 
         <variable
             name="mainData"
-            type="com.example.shurtiandroidproject.viewmodel.MainVM" />
+            type="com.lock.the.box.viewmodel.MainVM" />
     </data>
 
     <ScrollView

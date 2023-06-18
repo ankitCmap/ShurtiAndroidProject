@@ -5,7 +5,7 @@
     <data>
         <variable
             name="mainData"
-            type="com.example.shurtiandroidproject.viewmodel.MainVM" />
+            type="com.lock.the.box.viewmodel.MainVM" />
     </data>
 <LinearLayout
     android:layout_width="match_parent"
