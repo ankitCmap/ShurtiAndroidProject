@@ -5,24 +5,27 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
+import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
+import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivitySignupBinding
 import com.lock.the.box.roomdatabase.BaseActivity
 
-class SignUpActivity: BaseActivity() {
+class SignUpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivitySignupBinding
-    var  modile:String?=null
+    var modile: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivitySignupBinding.inflate(layoutInflater)
+        binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         modile = intent.getStringExtra("mobile")
         initView()
+        binding.register?.setOnClickListener(this)
     }
 
     private fun initView() {
 
         binding.apply {
-            mobileLine.text="We have sent 4 digit OTP on $modile "
+            mobileLine.text = "We have sent 4 digit OTP on $modile "
             changeNum.setOnClickListener {
                 finish()
             }
@@ -63,51 +66,45 @@ class SignUpActivity: BaseActivity() {
                 }
             }.start()
         }
-
-       /* if (v.getId() == R.id.register) {
-            emailValidator()
-            val check: Boolean = validate(email.getText().toString())
-            if (customerName.getText().toString() == "") {
-                customerName.setError("This field is compulsory!")
-                customerName.requestFocus()
-            } else if (customerName.getText().toString().length < 5) {
-                customerName.setError("Please enter your complete name!")
-                customerName.requestFocus()
-            } else if (customerName.toString().matches("[a-zA-Z ]+")) {
-                customerName.setError(resources.getText(R.string.can_not_use_specail) + " name!")
-                customerName.requestFocus()
-            } else if (email.getText().toString() != "" && !check) {
-                email.setError("Please enter a valid email address!")
-                email.requestFocus()
-            } else if (email.getText().toString() == "") {
-                email.setError("This field is compulsory!")
-                email.requestFocus()
-            } else if (passwordEt.getText().toString() == "") {
-                passwordEt.setError("This field is compulsory!")
-                passwordEt.requestFocus()
-            } else if (passwordEt.getText().toString().trim { it <= ' ' }.length < 5) {
-                passwordEt.setError("Password is too short!")
-                passwordEt.requestFocus()
-            } else if (!repasswordEt.getText().toString().trim { it <= ' ' }
-                    .matches("[a-zA-Z0-9]+")) {
-                repasswordEt.setError("Password accept only alphabets and numbers!")
-                repasswordEt.requestFocus()
-            } else if (repasswordEt.getText().toString() == "") {
-                repasswordEt.setError("This field is compulsory!")
-                repasswordEt.requestFocus()
-            } else if (repasswordEt.getText().toString() != passwordEt.getText().toString()) {
-                repasswordEt.setError("Password does not match")
-                repasswordEt.requestFocus()
-            } else if (otp.getText().toString() == "") {
-                otp.setError("Verify your mobile number!")
-                otp.requestFocus()
-            } else {*/
-                //   logRegisterEvent(customerName.getText().toString(),email.getText().toString(),mobile_txt);
-
-//            }
-//        }
-
-
     }
 
+    override fun onClick(p0: View?) {
+        TODO("Not yet implemented")
+        when (p0?.id) {
+            R.id.register ->
+                //emailValidator()
+              //  val check : Boolean = validate(binding.customerEmail.text.toString())
+            if (binding.customerName.text.toString() == "") {
+                binding.customerName.error = "This field is compulsory!"
+            } else if (binding.customerName.text.toString().length < 5) {
+                binding.customerName.error = "Please enter your complete name!"
+            } else if (binding.customerName.toString().matches("[a-zA-Z ]+")) {
+                binding.customerName.error = resources.getText(R.string.can_not_use_specail) + " name!"
+            } else if (binding.customerEmail.text.toString() != "" && !check) {
+                binding.customerEmail.error = "Please enter a valid email address!"
+            } else if (binding.customerEmail.text.toString() == "") {
+                binding.customerEmail.error = "This field is compulsory!"
+            } else if (binding.customerNewPass.text.toString() == "") {
+                binding.customerNewPass.error = "This field is compulsory!"
+            } else if (binding.customerNewPass.text.toString().trim { it <= ' ' }.length < 5) {
+                binding.customerNewPass.setError("Password is too short!")
+            } else if (!binding.customerRePass.text.toString().trim { it <= ' ' }
+                    .matches("[a-zA-Z0-9]+")) {
+                binding.customerRePass.error = "Password accept only alphabets and numbers!"
+            } else if (binding.customerRePass.text.toString() == "") {
+                binding.customerRePass.error = "This field is compulsory!"
+            } else if (binding.customerNewPass.text.toString() != binding.customerRePass.text.toString()) {
+                binding.customerRePass.error = "Password does not match"
+            } else if (binding.otp.text.toString() == "") {
+               // binding.otp.error("Verify your mobile number!")
+            } else {
+                logRegisterEvent(
+                    customerName.getText().toString(),
+                    email.getText().toString(),
+                    mobile_txt
+                )
+            }
+        }
+
+    }
 }
