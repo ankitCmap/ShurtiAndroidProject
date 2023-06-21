@@ -68,5 +68,39 @@ object Utils {
         return checkForInternet(context)
     }
 
+    /*--------Encrypted Function---------*/
+    fun encryptedValue(input: String): String {
+        val inputLen = input.length
+        val randKey = (Math.random() * 9 + 1).toInt()
+        val inputChr = IntArray(inputLen)
+        for (i in 0 until inputLen) {
+            inputChr[i] = input[i].code - randKey
+        }
+        val sb = StringBuilder()
+        for (i in inputChr) {
+            sb.append(i).append("a")
+        }
+        sb.append(randKey.toString()[0].code + 50)
+        return sb.toString()
+    }
+
+    /*-------Decrypted Function--------*/
+    fun decryptedValue(input: String): String {
+        val inputArr = input.split("a".toRegex()).dropLastWhile { it.isEmpty() }
+            .toTypedArray()
+        val inputLen = inputArr.size - 1
+        // int randKey = (int) inputArr[inputLen].charAt(0) - 50;
+        val `val` = inputArr[inputLen].toInt() - 50
+        val randKey = `val`.toChar().toString()
+        val inputChr = IntArray(inputLen)
+        for (i in 0 until inputLen) {
+            inputChr[i] = inputArr[i].toInt() + Integer.valueOf(randKey)
+        }
+        val sb = StringBuilder()
+        for (i in inputChr) {
+            sb.append(i.toChar())
+        }
+        return sb.toString()
+    }
 
 }
