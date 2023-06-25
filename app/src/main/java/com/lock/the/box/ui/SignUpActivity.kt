@@ -5,12 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
-import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivitySignupBinding
 import com.lock.the.box.roomdatabase.BaseActivity
 
-class SignUpActivity : BaseActivity(), View.OnClickListener {
+class SignUpActivity : BaseActivity()/*, View.OnClickListener */{
     lateinit var binding: ActivitySignupBinding
     var modile: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +17,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         setContentView(binding.root)
         modile = intent.getStringExtra("mobile")
         initView()
-        binding.register?.setOnClickListener(this)
+//        binding.register?.setOnClickListener(this)
     }
 
     private fun initView() {
@@ -36,7 +34,6 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                 startActivity(i)
                 finish()
             }
-
             resend.setOnClickListener {
                 object : CountDownTimer(30000, 700) {
                     override fun onTick(millisUntilFinished: Long) {
@@ -68,7 +65,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(p0: View?) {
+    /*override fun onClick(p0: View?) {
         TODO("Not yet implemented")
         when (p0?.id) {
             R.id.register ->
@@ -106,5 +103,6 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
-    }
+    }*/
+
 }
