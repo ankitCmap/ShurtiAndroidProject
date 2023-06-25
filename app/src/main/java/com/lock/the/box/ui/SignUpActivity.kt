@@ -4,21 +4,31 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Patterns
 import android.view.View
-import androidx.constraintlayout.motion.widget.TransitionBuilder.validate
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivitySignupBinding
+import com.lock.the.box.network.RetrofitHelper
+import com.lock.the.box.network.WebServices
+import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.roomdatabase.BaseActivity
+import com.lock.the.box.viewmodel.SignUpViewModel
+import org.json.JSONObject
 
 class SignUpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivitySignupBinding
     var modile: String? = null
+    private lateinit var signUpViewModel: SignUpViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        modile = intent.getStringExtra("mobile")
+        modile = intent.getStringExtra("phone_number")
         initView()
+        signUpViewModel = getViewModel()
+        setObserver()
         binding.register?.setOnClickListener(this)
     }
 
@@ -68,43 +78,75 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    override fun onClick(p0: View?) {
-        TODO("Not yet implemented")
-        when (p0?.id) {
-            R.id.register ->
-                //emailValidator()
-              //  val check : Boolean = validate(binding.customerEmail.text.toString())
-            if (binding.customerName.text.toString() == "") {
-                binding.customerName.error = "This field is compulsory!"
-            } else if (binding.customerName.text.toString().length < 5) {
-                binding.customerName.error = "Please enter your complete name!"
-            } else if (binding.customerName.toString().matches("[a-zA-Z ]+")) {
-                binding.customerName.error = resources.getText(R.string.can_not_use_specail) + " name!"
-            } else if (binding.customerEmail.text.toString() != "" && !check) {
-                binding.customerEmail.error = "Please enter a valid email address!"
-            } else if (binding.customerEmail.text.toString() == "") {
-                binding.customerEmail.error = "This field is compulsory!"
-            } else if (binding.customerNewPass.text.toString() == "") {
-                binding.customerNewPass.error = "This field is compulsory!"
-            } else if (binding.customerNewPass.text.toString().trim { it <= ' ' }.length < 5) {
-                binding.customerNewPass.setError("Password is too short!")
-            } else if (!binding.customerRePass.text.toString().trim { it <= ' ' }
-                    .matches("[a-zA-Z0-9]+")) {
-                binding.customerRePass.error = "Password accept only alphabets and numbers!"
-            } else if (binding.customerRePass.text.toString() == "") {
-                binding.customerRePass.error = "This field is compulsory!"
-            } else if (binding.customerNewPass.text.toString() != binding.customerRePass.text.toString()) {
-                binding.customerRePass.error = "Password does not match"
-            } else if (binding.otp.text.toString() == "") {
-               // binding.otp.error("Verify your mobile number!")
-            } else {
-                logRegisterEvent(
-                    customerName.getText().toString(),
-                    email.getText().toString(),
-                    mobile_txt
+    fun getViewModel(): SignUpViewModel {
+        return ViewModelProvider(
+            this, SignUpViewModel.Factory(
+                SignUpRepository(
+                    RetrofitHelper.createRetrofitService(
+                        WebServices::class.java
+                    )
                 )
+            )
+        ).get("", SignUpViewModel::class.java)
+    }
+
+    fun setObserver() {
+        signUpViewModel.signUpResponse.observe(this) {
+            if (it.status != null) {
+                Toast.makeText(this, "Login Successful.", Toast.LENGTH_LONG).show()
             }
         }
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0?.id) {
+            R.id.btn_register -> {
+                if (binding.customerName.text.toString().isEmpty() && binding.customerName.text.toString().length < 5) {
+                    binding.customerName.error = "Please enter your name"
+                }  else if (binding.customerEmail.text.toString()
+                        .isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(binding.customerEmail.text.toString())
+                        .matches()
+                ) {
+                    binding.customerEmail.error = "Please enter a valid email address!"
+                }  else if (binding.customerNewPass.text.toString().isEmpty()) {
+                    binding.customerNewPass.error = "This field is compulsory!"
+                } else if (binding.customerNewPass.text.toString().trim().length < 5) {
+                    binding.customerNewPass.error = "Password is too short!"
+                } else if (binding.customerRePass.text.toString().isEmpty()) {
+                    binding.customerRePass.error = "This field is compulsory!"
+                } else if (binding.customerNewPass.text.toString() != binding.customerRePass.text.toString()) {
+                    binding.customerRePass.error = "Password does not match"
+                } else if (binding.otpp.text.toString().isEmpty()) {
+                   // binding.otpp.error("Verify your mobile number!")
+                } else {
+                    //val abc: String
+                    var json = JSONObject()
+                    json.put("user", modile)
+                    json.put("uname", binding.customerName.text.toString())
+                    json.put("email", binding.customerEmail.text.toString().trim())
+                    json.put("city", "noida")
+                    json.put("state", "up")
+                    json.put("device_type", "Android")
+                    json.put("device_id", "AS12233")
+                    json.put("lat", "33.3333")
+                    json.put ("long", "43.333")
+                    json.put("referrer_code", "9990ASDe333")
+                    json.put("password", binding.customerNewPass.text.toString().trim())
+
+                    signUpViewModel.signUpResponse(json)
+                }
+
+            }
+            R.id.register ->{
+
+            }
+        }
+
+    }
+
+    private fun verifyOtp(mobile:String,otp:String) {
+
+
 
     }
 }

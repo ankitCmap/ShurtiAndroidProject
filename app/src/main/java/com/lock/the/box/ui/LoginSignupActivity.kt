@@ -1,5 +1,6 @@
 package com.lock.the.box.ui
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
@@ -63,13 +64,14 @@ class LoginSignupActivity : BaseActivity() {
             loginWithOtpModel.phoneNo = phoneNo
             val call: retrofit2.Call<BaseResponseData> = authApiHelper.doLoging(loginWithOtpModel)
             call.enqueue(object : CallbackManager<BaseResponseData>() {
+                @SuppressLint("SuspiciousIndentation")
                 override fun onSuccess(o: Any) {
                     val responceAuthModel: BaseResponseData = o as BaseResponseData
 //                    BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                     val i = Intent(this@LoginSignupActivity, SignUpActivity::class.java)
-//                    i.putExtra("loginFor", loginFor)
+                      i.putExtra("phone_number", binding.loginPhoneNumber.text.toString().trim())
 //                    i.putExtra("afterlogindata", afterlogindata)
-                    i.putExtra("mobile", phoneNo.trim { it <= ' ' })
+                      //i.putExtra("mobile", phoneNo.trim { it <= ' ' })
 //                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
 //                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(i)
