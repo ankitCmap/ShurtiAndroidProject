@@ -73,7 +73,6 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
     implementation 'io.branch.sdk.android:library:5.0.10'
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -82,6 +81,12 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //view model
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
 
 
 

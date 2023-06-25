@@ -1,6 +1,8 @@
 package com.lock.the.box.network
 
 import com.lock.the.box.model.MainModel
+import com.lock.the.box.model.SignUpData
+import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -15,5 +17,11 @@ interface WebServices {
     suspend fun searchByProducdId(@Query("i") key: String): Response<MainModel>
 
     @POST("login.php")
-    suspend fun loginApi()
+    suspend fun loginApi(@Body params: JSONObject): Response<SignUpData>
+
+    @POST("sign_up.php")
+    suspend fun signUpApi(@Body params: JSONObject): Response<SignUpData>
+
+    @POST("check-otp.php")
+    suspend fun verifyOtpApi(@Body params: JSONObject): Response<SignUpData>
 }
