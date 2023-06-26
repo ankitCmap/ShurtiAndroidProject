@@ -29,6 +29,7 @@ class SignUpViewModel(val signUpRepository: SignUpRepository) : ViewModel() {
                         if (it.data !=null){
                            signUpResponseData(it.data)
                             Log.d("prabal","pratap")
+                            Log.d("prabal_data", it.data.toString())
                         }
                     }
                     else -> {}
