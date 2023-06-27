@@ -16,7 +16,6 @@ import org.json.JSONObject
 
 class SignUpViewModel(val signUpRepository: SignUpRepository) : ViewModel() {
     val error: MutableLiveData<String>? = null
-    private lateinit var context: Context
     val signUpResponse: MutableLiveData<SignUpData> by lazy {
         MutableLiveData<SignUpData>()
     }
@@ -25,7 +24,6 @@ class SignUpViewModel(val signUpRepository: SignUpRepository) : ViewModel() {
     }
 
     fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>()) {
-        this.context = context
         viewModelScope.launch(exceptionHandler) {
             signUpRepository.signUpRequest(hashMap).let {
                 when (it.status) {

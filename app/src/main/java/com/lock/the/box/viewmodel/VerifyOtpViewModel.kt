@@ -16,7 +16,6 @@ import kotlinx.coroutines.launch
 
 class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewModel() {
     val error: MutableLiveData<String>? = null
-    private lateinit var context: Context
     val signUpResponse: MutableLiveData<OtpVerifyModel> by lazy {
         MutableLiveData<OtpVerifyModel>()
     }
@@ -25,7 +24,6 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
     }
 
     fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>()) {
-        this.context = context
         viewModelScope.launch(exceptionHandler) {
             verifyOtpRepository.otpRequest(hashMap).let {
                 when (it.status) {

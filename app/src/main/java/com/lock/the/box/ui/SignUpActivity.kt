@@ -34,9 +34,9 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
         modile = intent.getStringExtra("phone_number")
-        initView()
         signUpViewModel = getViewModel()
         verifyOtpViewModel = getOtpViewModel()
+        initView()
         binding.register.setOnClickListener(this)
         binding.btnRegister.setOnClickListener(this)
         setObserver()
@@ -117,11 +117,14 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         signUpViewModel.signUpResponse.observe(this) {
             if (it.status != null) {
                 if (it.status==1) {
-                    val mFragmentManager = supportFragmentManager
+                    /*val mFragmentManager = supportFragmentManager
                     val mFragmentTransaction = mFragmentManager.beginTransaction()
                     val mFragment = HomeFragment()
-                    mFragmentTransaction.add(R.id.frameLayout, mFragment).commit()
+                    mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    val i = Intent(this, MainActivity::class.java)
+                    startActivity(i)
+                    finish()
                 }
             }
         }
@@ -132,8 +135,10 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             if (it.datanew !=null) {
                // if (it.status==1) {
                 binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+                binding.register.text = "VERIFIED"
                 binding.signupLayout.visibility = View.VISIBLE
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                Utils.hideSoftKeyBoard(this, binding.register )
                // }
             }
         }
