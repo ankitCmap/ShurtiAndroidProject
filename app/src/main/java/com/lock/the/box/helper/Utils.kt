@@ -30,6 +30,7 @@ object Utils {
             statusBarColor = Color.TRANSPARENT
         }
     }
+
     fun showToast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
@@ -44,6 +45,7 @@ object Utils {
             }
         }
     }
+
     fun checkForInternet(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -68,5 +70,14 @@ object Utils {
         return checkForInternet(context)
     }
 
+    fun hideSoftKeyBoard(context: Context, view: View) {
+        try {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm?.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        } catch (e: Exception) {
+            // TODO: handle exception
+            e.printStackTrace()
+        }
 
+    }
 }

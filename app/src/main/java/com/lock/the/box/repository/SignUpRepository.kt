@@ -10,10 +10,10 @@ import org.json.JSONObject
 
 class SignUpRepository(private val webServices: WebServices) {
 
-    suspend fun signUpRequest(mobile: JSONObject): Resource<SignUpData> {
+    suspend fun signUpRequest(hashMap: HashMap<String, Any> = HashMap<String, Any>()): Resource<SignUpData> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = webServices.signUpApi(mobile)
+                val response = webServices.signUpApi(hashMap)
                 if (response.isSuccessful && response.body() != null) {
                     Log.d("pp_singh =>", response.body().toString())
                     Resource.success(response.body() as SignUpData)

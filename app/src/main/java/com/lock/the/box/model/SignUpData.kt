@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class SignUpData(
-    @Expose @SerializedName("data") val `data`: List<UserDataModel>,
+    @Expose @SerializedName("data") val data: List<UserDataModel>,
     @Expose @SerializedName("message") val message: String,
     @Expose @SerializedName ("status") val status: Int
 ):Serializable

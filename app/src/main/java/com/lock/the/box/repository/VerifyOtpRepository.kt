@@ -2,16 +2,14 @@ package com.lock.the.box.repository
 
 import android.util.Log
 import com.lock.the.box.model.OtpVerifyModel
-import com.lock.the.box.model.SignUpData
 import com.lock.the.box.network.Resource
 import com.lock.the.box.network.WebServices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
 
 class VerifyOtpRepository(private val webServices: WebServices) {
 
-    suspend fun otpRequest(otp: JSONObject): Resource<OtpVerifyModel> {
+    suspend fun otpRequest(otp: HashMap<String, Any>): Resource<OtpVerifyModel> {
         return withContext(Dispatchers.IO) {
             try {
                 val response = webServices.verifyOtpApi(otp)
