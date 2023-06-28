@@ -1,22 +1,21 @@
 package com.lock.the.box.repository
 
 import android.util.Log
-import com.lock.the.box.model.SignUpData
+import com.lock.the.box.model.OtpVerifyModel
 import com.lock.the.box.network.Resource
 import com.lock.the.box.network.WebServices
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.json.JSONObject
 
-class SignUpRepository(private val webServices: WebServices) {
+class VerifyOtpRepository(private val webServices: WebServices) {
 
-    suspend fun signUpRequest(hashMap: HashMap<String, Any> = HashMap<String, Any>()): Resource<SignUpData> {
+    suspend fun otpRequest(otp: HashMap<String, Any>): Resource<OtpVerifyModel> {
         return withContext(Dispatchers.IO) {
             try {
-                val response = webServices.signUpApi(hashMap)
+                val response = webServices.verifyOtpApi(otp)
                 if (response.isSuccessful && response.body() != null) {
-                    Log.d("pp_singh =>", response.body().toString())
-                    Resource.success(response.body() as SignUpData)
+                    Log.d("pp_singh_1 =>", response.body().toString())
+                    Resource.success(response.body() as OtpVerifyModel)
                 } else {
                     Resource.error(response.message(), null)
                 }
@@ -26,5 +25,4 @@ class SignUpRepository(private val webServices: WebServices) {
             }
         }
     }
-
 }
