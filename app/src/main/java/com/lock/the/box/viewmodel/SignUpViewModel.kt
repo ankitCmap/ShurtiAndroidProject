@@ -1,5 +1,6 @@
 package com.lock.the.box.viewmodel
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -23,19 +24,21 @@ class SignUpViewModel(val signUpRepository: SignUpRepository) : ViewModel() {
         handleError()
     }
 
-    fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>()) {
+    fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>(),context: Context) {
+        val pd = ProgressDialog(context)
+        pd.setMessage("please wait..")
+        pd.show()
         viewModelScope.launch(exceptionHandler) {
             signUpRepository.signUpRequest(hashMap).let {
                 when (it.status) {
                     Resource.Status.SUCCESS -> {
                         if (it.data != null) {
                             signUpResponseData(it.data)
-
+                            pd.dismiss()
                             Log.d("prabal", "pratap")
                             Log.d("prabal_data", it.data.toString())
                         }
                     }
-
                     else -> {}
                 }
             }

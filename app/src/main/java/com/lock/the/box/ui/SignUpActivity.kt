@@ -179,7 +179,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                     hashMap.put("long", "43.333")
                     hashMap.put("referrer_code", "9990ASDe333")
                     hashMap.put("password", binding.customerNewPass.text.toString().trim())
-                      signUpViewModel.signUpResponse(hashMap)
+                      signUpViewModel.signUpResponse(hashMap,this)
                 }
 
             }
@@ -189,7 +189,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                 val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
                 hashMap.put("phone_no", modile.toString())
                 hashMap.put("otp_code", otp)
-                verifyOtpViewModel.signUpResponse(hashMap)
+                verifyOtpViewModel.signUpResponse(hashMap,this)
                 }
 
             }
