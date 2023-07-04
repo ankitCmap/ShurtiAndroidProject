@@ -34,7 +34,9 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
                         }
                     }
 
-                    else -> {}
+                    else -> {
+
+                    }
                 }
             }
         }

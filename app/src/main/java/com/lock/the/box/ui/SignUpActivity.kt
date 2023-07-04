@@ -113,7 +113,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         ).get("", VerifyOtpViewModel::class.java)
     }
 
-    fun setObserver() {
+    private fun setObserver() {
         signUpViewModel.signUpResponse.observe(this) {
             if (it.status != null) {
                 if (it.status==1) {
@@ -130,7 +130,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    fun setOtpObserver() {
+    private fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
             if (it.datanew !=null) {
                // if (it.status==1) {
@@ -138,7 +138,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                 binding.register.text = "VERIFIED"
                 binding.signupLayout.visibility = View.VISIBLE
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                Utils.hideSoftKeyBoard(this, binding.register )
+                Utils.hideSoftKeyboard(this )
                // }
             }
         }
@@ -168,27 +168,27 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                    // binding.otpp.error("Verify your mobile number!")
                 } else */ {
                     val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-                    hashMap.put("user", modile.toString())
-                    hashMap.put("uname", binding.customerName.text.toString())
-                    hashMap.put("email", binding.customerEmail.text.toString().trim())
-                    hashMap.put("city", "noida")
-                    hashMap.put("state", "up")
-                    hashMap.put("device_type", "Android")
-                    hashMap.put("device_id", "AS12233")
-                    hashMap.put("lat", "33.3333")
-                    hashMap.put("long", "43.333")
-                    hashMap.put("referrer_code", "9990ASDe333")
-                    hashMap.put("password", binding.customerNewPass.text.toString().trim())
-                      signUpViewModel.signUpResponse(hashMap)
+                    hashMap["user"] = modile.toString()
+                    hashMap["uname"] = binding.customerName.text.toString()
+                    hashMap["email"] = binding.customerEmail.text.toString().trim()
+                    hashMap["city"] = "noida"
+                    hashMap["state"] = "up"
+                    hashMap["device_type"] = "Android"
+                    hashMap["device_id"] = "AS12233"
+                    hashMap["lat"] = "33.3333"
+                    hashMap["long"] = "43.333"
+                    hashMap["referrer_code"] = "9990ASDe333"
+                    hashMap["password"] = binding.customerNewPass.text.toString().trim()
+                    signUpViewModel.signUpResponse(hashMap)
                 }
 
             }
 
             R.id.register -> {
-                val otp: String = binding.otpp.text.toString().trim()
-                val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-                hashMap.put("phone_no", modile.toString())
-                hashMap.put("otp_code", otp)
+                val otp: String = binding.etOtp.text.toString().trim()
+                val hashMap: HashMap<String, Any> = HashMap() //define empty hashmap
+                hashMap["phone_no"] = modile.toString()
+                hashMap["otp_code"] = otp
                 verifyOtpViewModel.signUpResponse(hashMap)
                 }
 
