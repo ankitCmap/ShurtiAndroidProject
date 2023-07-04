@@ -1,5 +1,6 @@
 package com.lock.the.box.viewmodel
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -23,7 +24,10 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
         handleError()
     }
 
-    fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>()) {
+    fun signUpResponse(hashMap: HashMap<String, Any> = HashMap<String, Any>(),context: Context) {
+        val pd = ProgressDialog(context)
+        pd.setMessage("please wait..")
+        pd.show()
         viewModelScope.launch(exceptionHandler) {
             verifyOtpRepository.otpRequest(hashMap).let {
                 when (it.status) {
@@ -31,6 +35,7 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
                         if (it.data != null) {
                             verifyOtpResponseData(it.data)
                             Log.d("prabal_data", it.data.toString())
+                            pd.dismiss()
                         }
                     }
 
