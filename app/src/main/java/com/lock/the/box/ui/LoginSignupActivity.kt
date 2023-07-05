@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivityLoginSignupBinding
-import com.lock.the.box.helper.BasePreferencesManager
-import com.lock.the.box.helper.Utils
+import com.lock.the.box.adapter.helper.BasePreferencesManager
+import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.model.BaseResponseData
 import com.lock.the.box.network.api.ApiClient
 import com.lock.the.box.network.api.AuthApiHelper
@@ -68,7 +68,7 @@ class LoginSignupActivity : BaseActivity() {
                 override fun onSuccess(o: Any) {
                     val responceAuthModel: BaseResponseData = o as BaseResponseData
                     Toast.makeText(applicationContext,responceAuthModel.message.toString(),Toast.LENGTH_LONG).show()
-                    Log.e("encryptedValue : ",Utils.encryptedValue(responceAuthModel.message.toString()))
+                    Log.e("encryptedValue : ", Utils.encryptedValue(responceAuthModel.message.toString()))
 //                  BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                     val i = Intent(this@LoginSignupActivity, SignUpActivity::class.java)
                     i.putExtra("phone_number", binding.loginPhoneNumber.text.toString().trim())

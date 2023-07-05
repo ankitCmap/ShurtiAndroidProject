@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivityChangePasswordBinding
 
-import com.lock.the.box.helper.BasePreferencesManager
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.roomdatabase.BaseActivity
 
 class ChangePasswordActivity : BaseActivity() {

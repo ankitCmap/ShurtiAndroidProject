@@ -1,4 +1,4 @@
-package com.lock.the.box.helper
+package com.lock.the.box.adapter.helper
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

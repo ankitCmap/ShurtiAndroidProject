@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.lock.the.box.R
-import com.lock.the.box.helper.BasePreferencesManager
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.roomdatabase.BaseActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

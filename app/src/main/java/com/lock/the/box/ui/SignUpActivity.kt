@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.util.Util
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivitySignupBinding
-import com.lock.the.box.helper.Utils
+import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.network.RetrofitHelper
 import com.lock.the.box.network.WebServices
 import com.lock.the.box.repository.SignUpRepository

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 
-import com.lock.the.box.helper.BasePreferencesManager
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.roomdatabase.BaseActivity
 import com.facebook.*
 import com.facebook.CallbackManager.Factory.create
