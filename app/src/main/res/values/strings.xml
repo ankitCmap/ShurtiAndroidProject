@@ -287,5 +287,8 @@
     <string name="_0_occupied">0% Occupied</string>
     <string name="select_your_box">Select your box</string>
     <string name="_0_books_added">0 books added in your box(s)</string>
-
+    <string name="we_will_be_offering">We will be offering a total of 3 boxes of according to their size of which you can select any as per the number of books you want. You can shortlist the books and put them in a box unless it gets filled. You\'ll get to know once there is no space left for more.</string>
+    <string name="pick_your">Pick Your Perfect Box</string>
+    <string name="choose_from"><font fgcolor='#0F275C' > Choose from </font><font fgcolor= '#E44090' > 500,000+ Books </font><font fgcolor='#0F275C'> around the world </font>
+</string>
 </resources>
