@@ -132,7 +132,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
-            if (it.datanew !=null) {
+            if (it.data !=null) {
                // if (it.status==1) {
                 binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
                 binding.register.text = "VERIFIED"
