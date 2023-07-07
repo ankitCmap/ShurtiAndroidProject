@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.util.Util
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivitySignupBinding
-import com.lock.the.box.adapter.helper.Utils
+import com.lock.the.box.helper.Utils
 import com.lock.the.box.network.RetrofitHelper
 import com.lock.the.box.network.WebServices
 import com.lock.the.box.repository.SignUpRepository
@@ -132,14 +132,14 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
-            if (it.datanew !=null) {
-                // if (it.status==1) {
+            if (it.data !=null) {
+               // if (it.status==1) {
                 binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
                 binding.register.text = "VERIFIED"
                 binding.signupLayout.visibility = View.VISIBLE
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                 Utils.hideSoftKeyBoard(this, binding.register )
-                // }
+               // }
             }
         }
     }
@@ -179,36 +179,36 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                     hashMap.put("long", "43.333")
                     hashMap.put("referrer_code", "9990ASDe333")
                     hashMap.put("password", binding.customerNewPass.text.toString().trim())
-                    signUpViewModel.signUpResponse(hashMap,this)
+                      signUpViewModel.signUpResponse(hashMap,this)
                 }
 
             }
 
             R.id.register -> {
-                val otp: String = binding.etOtp.text.toString().trim()
+                val otp: String = binding.otpp.text.toString().trim()
                 val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
                 hashMap.put("phone_no", modile.toString())
                 hashMap.put("otp_code", otp)
                 verifyOtpViewModel.signUpResponse(hashMap,this)
-            }
+                }
 
+            }
         }
+
     }
 
-}
+   /* private suspend fun verifyOtp(otp: String) {
 
-/* private suspend fun verifyOtp(otp: String) {
+        val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
+        hashMap.put("phone_no", modile.toString())
+        hashMap.put("otp_code", otp)
 
-     val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-     hashMap.put("phone_no", modile.toString())
-     hashMap.put("otp_code", otp)
+        val data = verifyOtpRepository.otpRequest(hashMap)
 
-     val data = verifyOtpRepository.otpRequest(hashMap)
-
-     if (!data.data?.token.isNullOrEmpty()) {
-         binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-         binding.signupLayout.visibility = View.VISIBLE
-         Toast.makeText(this, data.message, Toast.LENGTH_LONG).show()
-        // Utils.hideSoftKeyBoard(this, binding.register )
-     }
- }*/
+        if (!data.data?.token.isNullOrEmpty()) {
+            binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+            binding.signupLayout.visibility = View.VISIBLE
+            Toast.makeText(this, data.message, Toast.LENGTH_LONG).show()
+           // Utils.hideSoftKeyBoard(this, binding.register )
+        }
+    }*/
