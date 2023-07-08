@@ -40,7 +40,7 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
                     }
 
                     else -> {
-
+                        pd.dismiss()
                     }
                 }
             }
@@ -50,6 +50,9 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
     private fun verifyOtpResponseData(otpVerifyModel: OtpVerifyModel) {
         synchronized(signUpResponse) {
             signUpResponse.postValue(otpVerifyModel)
+
+
+
             //  val intent: Intent = Intent(this,Das)
         }
     }

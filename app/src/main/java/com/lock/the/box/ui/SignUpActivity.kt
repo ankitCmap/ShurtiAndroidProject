@@ -8,21 +8,16 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.util.Util
 import com.lock.the.box.R
+import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.databinding.ActivitySignupBinding
-import com.lock.the.box.helper.Utils
 import com.lock.the.box.network.RetrofitHelper
 import com.lock.the.box.network.WebServices
 import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.repository.VerifyOtpRepository
 import com.lock.the.box.roomdatabase.BaseActivity
-import com.lock.the.box.ui.home.HomeFragment
 import com.lock.the.box.viewmodel.SignUpViewModel
 import com.lock.the.box.viewmodel.VerifyOtpViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.json.JSONObject
 
 class SignUpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivitySignupBinding
@@ -185,7 +180,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             }
 
             R.id.register -> {
-                val otp: String = binding.otpp.text.toString().trim()
+                val otp: String = binding.etOtp.text.toString().trim()
                 val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
                 hashMap.put("phone_no", modile.toString())
                 hashMap.put("otp_code", otp)
