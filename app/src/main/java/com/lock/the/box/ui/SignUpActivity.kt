@@ -110,37 +110,34 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     fun setObserver() {
         signUpViewModel.signUpResponse.observe(this) {
-            if (it.status != null) {
-                if (it.status==1) {
-                    /*val mFragmentManager = supportFragmentManager
-                    val mFragmentTransaction = mFragmentManager.beginTransaction()
-                    val mFragment = HomeFragment()
-                    mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
-                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    val i = Intent(this, MainActivity::class.java)
-                    startActivity(i)
-                    finish()
-                }
+            if (it.status==1) {
+                /*val mFragmentManager = supportFragmentManager
+                val mFragmentTransaction = mFragmentManager.beginTransaction()
+                val mFragment = HomeFragment()
+                mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
+                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                val i = Intent(this, MainActivity::class.java)
+                startActivity(i)
+                finish()
             }
         }
     }
 
     fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
-            if (it.data !=null) {
-               // if (it.status==1) {
-                binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-                binding.register.text = "VERIFIED"
-                binding.signupLayout.visibility = View.VISIBLE
-                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                Utils.hideSoftKeyBoard(this, binding.register )
-               // }
-            }
+            // if (it.status==1) {
+            binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+            binding.register.text = "VERIFIED"
+            binding.signupLayout.visibility = View.VISIBLE
+            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+            Utils.hideSoftKeyBoard(this, binding.register )
+            // }
         }
     }
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
+
             R.id.btn_register -> {
                 if (binding.customerName.text.toString()
                         .isEmpty() && binding.customerName.text.toString().length < 5

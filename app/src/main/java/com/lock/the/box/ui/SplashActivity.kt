@@ -17,7 +17,7 @@ class SplashActivity : BaseActivity() {
             delay(3000L)
             if (BasePreferencesManager.getBoolean(BasePreferencesManager.IS_LOGIN, false)
                 || BasePreferencesManager.getBoolean(BasePreferencesManager.IS_SKIP, false)) {
-                val intent = Intent(this@SplashActivity, CartActivity::class.java)
+                val intent = Intent(this@SplashActivity, NewMainActivity::class.java)
                 startActivity(intent)
                 finish()
             }else {
