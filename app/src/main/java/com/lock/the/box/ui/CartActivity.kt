@@ -3,8 +3,8 @@ package com.lock.the.box.ui
 import android.content.Intent
 import android.os.Bundle
 import com.lock.the.box.databinding.ActivityCartBinding
-import com.lock.the.box.helper.CartBottomSheetDialog
-import com.lock.the.box.helper.ShurtiApplication
+import com.lock.the.box.adapter.helper.CartBottomSheetDialog
+import com.lock.the.box.adapter.helper.ShurtiApplication
 import com.lock.the.box.roomdatabase.BaseActivity
 
 
@@ -65,8 +65,5 @@ class CartActivity: BaseActivity() {
         }
 
     }
-
-
-
 
 }

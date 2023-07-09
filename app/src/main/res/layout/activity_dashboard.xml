@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.DashboardActivity"
+    android:background="@color/trans">
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/ll_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ltb_fram1"
+                android:background="@color/purple_500"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ltbimage"
+                android:background="@color/purple_500"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/frame2" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/frame3" />
+
+            <Button
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_width="@dimen/_222sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:background="#0F275C"
+                android:text="Select a Box"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18ssp"
+                android:fontFamily="@font/nunitosans_regular"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp"
+            android:gravity="center"
+            android:background="@color/primary_purple"
+            android:layout_below="@+id/ll_one">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/pick_your"
+                android:gravity="center"
+                android:textSize="@dimen/_24ssp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/dirty_headline"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/we_will_be_offering"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/nunitosans_regular"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:padding="@dimen/_5sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:cardBackgroundColor="@color/white_bag">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Best Seller"
+                        android:textSize="@dimen/_16ssp"
+                        android:textColor="@color/white_bag"
+                        android:visibility="invisible"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:background="#1FAF38"/>
+                    <ImageView
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/greenbox" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Odysseus Box"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/dirty_headline"
+                        android:textSize="@dimen/_22ssp"
+                        android:textColor="#0F275C"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Medium (7-8 Books Approx)"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#0F275C"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="₹ 1199"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#008ECC"
+                        />
+
+                    <Button
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_width="@dimen/_222sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="#0F275C"
+                        android:layout_gravity="center"
+                        android:text="Select a Box"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18ssp"
+                        android:fontFamily="@font/nunitosans_regular"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:cardBackgroundColor="@color/white_bag">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Best Seller"
+                        android:textSize="@dimen/_16ssp"
+                        android:textColor="@color/white_bag"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:background="#1FAF38"/>
+                    <ImageView
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/orangebox" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Perseus Box"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/dirty_headline"
+                        android:textSize="@dimen/_22ssp"
+                        android:textColor="#0F275C"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Medium (7-8 Books Approx)"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#0F275C"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="₹ 1999"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#008ECC"
+                        />
+
+                    <Button
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_width="@dimen/_222sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="#0F275C"
+                        android:layout_gravity="center"
+                        android:text="Select a Box"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18ssp"
+                        android:fontFamily="@font/nunitosans_regular"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_8sdp"
+                app:cardElevation="@dimen/_2sdp"
+                app:cardBackgroundColor="@color/white_bag">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Best Seller"
+                        android:textSize="@dimen/_16ssp"
+                        android:visibility="invisible"
+                        android:textColor="@color/white_bag"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:background="#1FAF38"/>
+                    <ImageView
+                        android:layout_width="@dimen/_130sdp"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/pinkbox" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:text="Hercules Box"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/dirty_headline"
+                        android:textSize="@dimen/_22ssp"
+                        android:textColor="#0F275C"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:text="Medium (7-8 Books Approx)"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_semibold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#0F275C"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:text="₹ 2999"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/nunitosans_bold"
+                        android:textSize="@dimen/_18ssp"
+                        android:textColor="#008ECC"
+                        />
+
+                    <Button
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:layout_width="@dimen/_222sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:background="#0F275C"
+                        android:layout_gravity="center"
+                        android:text="Select a Box"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18ssp"
+                        android:fontFamily="@font/nunitosans_regular"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+            <TextView
+                android:layout_below="@id/ll_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/choose_from"
+                android:layout_gravity="center"
+                android:textSize="@dimen/_18ssp"
+                android:textAlignment="center"
+                android:background="#FFD500"
+                android:fontFamily="@font/dirty_headline"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

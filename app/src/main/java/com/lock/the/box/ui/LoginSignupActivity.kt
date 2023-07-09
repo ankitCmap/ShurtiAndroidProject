@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivityLoginSignupBinding
-
-import com.lock.the.box.helper.BasePreferencesManager
-import com.lock.the.box.helper.ToastUtils
+import com.lock.the.box.adapter.helper.BasePreferencesManager
+import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.model.BaseResponseData
 import com.lock.the.box.network.api.ApiClient
 import com.lock.the.box.network.api.AuthApiHelper
@@ -58,7 +59,6 @@ class LoginSignupActivity : BaseActivity() {
             val pd = ProgressDialog(this)
             pd.setMessage("please wait..")
             pd.show()
-
             val authApiHelper = ApiClient.getClient().create(AuthApiHelper::class.java)
             val loginWithOtpModel = RequestAuthModel()
             loginWithOtpModel.phoneNo = phoneNo
@@ -67,21 +67,18 @@ class LoginSignupActivity : BaseActivity() {
                 @SuppressLint("SuspiciousIndentation")
                 override fun onSuccess(o: Any) {
                     val responceAuthModel: BaseResponseData = o as BaseResponseData
-//                    BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
+                    Toast.makeText(applicationContext,responceAuthModel.message.toString(),Toast.LENGTH_LONG).show()
+                    Log.e("encryptedValue : ", Utils.encryptedValue(responceAuthModel.message.toString()))
+//                  BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                     val i = Intent(this@LoginSignupActivity, SignUpActivity::class.java)
-                      i.putExtra("phone_number", binding.loginPhoneNumber.text.toString().trim())
-//                    i.putExtra("afterlogindata", afterlogindata)
-                      //i.putExtra("mobile", phoneNo.trim { it <= ' ' })
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    i.putExtra("phone_number", binding.loginPhoneNumber.text.toString().trim())
                     startActivity(i)
-//                    finish()
                     pd.dismiss()
                 }
 
                 override fun onError(retroError: RetroError) {
-                    ToastUtils.showShortToast(retroError.toString())
-
+                    Toast.makeText(applicationContext,retroError.toString(),Toast.LENGTH_LONG).show()
+                    pd.dismiss()
                 }
             })
 
@@ -91,52 +88,4 @@ class LoginSignupActivity : BaseActivity() {
 
     }
 
-    /* private void getUserProfile(String currentAccessToken) {
-        GraphRequest request = GraphRequest.newMeRequest(currentAccessToken, new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject object, GraphResponse response) {
-                        Log.d("TAG", object.toString());
-                        try {
-                            //doFaceBookLogin();
-                            String first_name = object.getString("first_name");
-                            String last_name = object.getString("last_name");
-                            //     String email = object.getString("email");
-                            String id = object.getString("id");
-                            String image_url = "https://graph.facebook.com/" + id + "/picture?type=normal";
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "first_name,last_name,email,id");
-        request.setParameters(parameters);
-        request.executeAsync();
-
-    }
-*/
-/*
-    private fun GoogleLogin() {
-        try {
-            val authApiHelper = ApiClient.getClient().create(AuthApiHelper::class.java)
-            val requestLoginModel = RequestAuthModel()
-            requestLoginModel.phoneNo=""
-            val call: Call<ResponceAuthModel>
-            call = authApiHelper.doLoging(requestLoginModel)
-            call.enqueue(object : CallbackManager<ResponceAuthModel?>() {
-                override fun onSuccess(o: Any) {
-                    val responceAuthModel: ResponceAuthModel = o as ResponceAuthModel
-
-                }
-
-                override fun onError(retroError: RetroError) {
-
-                }
-            })
-        } catch (e: java.lang.Exception) {
-            e.printStackTrace()
-        }
-    }
-*/
 }

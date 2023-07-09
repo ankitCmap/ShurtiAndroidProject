@@ -4,7 +4,7 @@ import android.app.ProgressDialog
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.lock.the.box.helper.Utils.makeStatusBarTransparent
+import com.lock.the.box.adapter.helper.Utils.makeStatusBarTransparent
 
 open class BaseActivity : AppCompatActivity(){
     var dialog: ProgressDialog? = null

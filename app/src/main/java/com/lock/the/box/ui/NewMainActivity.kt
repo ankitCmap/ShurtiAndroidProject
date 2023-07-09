@@ -37,33 +37,33 @@ class NewMainActivity : BaseActivity() {
             }
 
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        /*val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.navigation_home -> {
                     replaceFragment(HomeFragment(),"Home")
                     true
                 }
-               /* R.id.navigation_category -> {
+               *//* R.id.navigation_category -> {
                     replaceFragment(HomeFragment(),"Home")
                     true
-                }*/
+                }*//*
                 R.id.navigation_cart -> {
                     val i = Intent(this@NewMainActivity, CartActivity::class.java)
                     startActivity(i)
                     true
                 }
-            /*    R.id.navigation_store -> {
+            *//*    R.id.navigation_store -> {
                     replaceFragment(HomeFragment(),"Home")
                     true
-                }*/
+                }*//*
                 R.id.navigation_accounts -> {
                     replaceFragment(AccountFragment(),"Account")
                     true
                 }
                 else -> false
             }
-        }
+        }*/
     }
 
 
