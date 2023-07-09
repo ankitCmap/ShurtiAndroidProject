@@ -18,7 +18,7 @@ import com.lock.the.box.viewmodel.MainVM
 import java.util.*
 
 class MainActivity : BaseActivity() {
-    lateinit var binding: ActivityMainBinding
+    /*lateinit var binding: ActivityMainBinding
     lateinit var viewModel: MainVM
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     private lateinit var repository: MainRepository
@@ -58,7 +58,7 @@ class MainActivity : BaseActivity() {
     }
     private fun onObservable() {
 
-       /* viewModel.dataList.observe(this) {
+       *//* viewModel.dataList.observe(this) {
             if (it==null){
                 binding.empty.wallEmptyLl.visibility=View.VISIBLE
                 sampleAdapter.cleareData()
@@ -75,11 +75,11 @@ class MainActivity : BaseActivity() {
             }else{
                 dismissDialog()
             }
-        }*/
+        }*//*
     }
 
     private fun initView() {
-        /*binding.ivSearch.setBackgroundResource(R.mipmap.search)
+        *//*binding.ivSearch.setBackgroundResource(R.mipmap.search)
         viewModel.getOnlineData(this)
         sampleAdapter= SampleAdapter()
         binding.rvMain.adapter=sampleAdapter
@@ -95,7 +95,7 @@ class MainActivity : BaseActivity() {
                 viewModel.getOnlineData(this)
                 binding.ivSearch.setBackgroundResource(R.mipmap.search)
             }
-        }*/
+        }*//*
     }
 
     @JvmName("getViewModel1")
@@ -119,5 +119,5 @@ class MainActivity : BaseActivity() {
         fragmentTransition.commit()
         binding.drawerLayout.closeDrawers()
         setTitle(title)
-    }
+    }*/
 }

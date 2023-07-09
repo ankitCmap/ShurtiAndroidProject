@@ -2,60 +2,51 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="mainData"
             type="com.lock.the.box.viewmodel.MainVM" />
     </data>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
-    tools:context=".ui.NewMainActivity">
-    <include
-        layout="@layout/allinone_toolbar"
-        android:id="@+id/allinone_tootlbar"
-        android:visibility="gone"
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include
-        layout="@layout/main_toolbar"
-        android:id="@+id/main_tootlbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        tools:context=".ui.NewMainActivity">
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <FrameLayout
-            android:id="@+id/flFragment"
+        <RelativeLayout
+            android:id="@+id/main_tootlbar1"
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/flFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </RelativeLayout>
+
+        <include
+            android:id="@+id/main_tootlbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/_45sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:menu="@menu/navigation_menu" />
 
-      <!--  <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white"
-            android:padding="@dimen/_3sdp"
-            app:itemIconSize="@dimen/_18sdp"
-            app:itemIconTint="@color/bnv_tab_item_foreground"
-            app:itemTextColor="@color/bnv_tab_item_foreground"
-            app:labelVisibilityMode="labeled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav_menu" />-->
-    </RelativeLayout>
-</LinearLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 </layout>
