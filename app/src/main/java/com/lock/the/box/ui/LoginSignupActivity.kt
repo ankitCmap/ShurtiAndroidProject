@@ -41,7 +41,6 @@ class LoginSignupActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this, R.layout.activity_login_signup)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        getLocation()
 
         initView()
     }
@@ -90,6 +89,7 @@ class LoginSignupActivity : BaseActivity() {
                     i.putExtra("phone_number", binding.loginPhoneNumber.text.toString().trim())
                     startActivity(i)
                     pd.dismiss()
+                    finish()
                 }
 
                 override fun onError(retroError: RetroError) {
