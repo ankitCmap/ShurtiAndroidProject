@@ -8,16 +8,21 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.util.Util
 import com.lock.the.box.R
-import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.databinding.ActivitySignupBinding
+import com.lock.the.box.helper.Utils
 import com.lock.the.box.network.RetrofitHelper
 import com.lock.the.box.network.WebServices
 import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.repository.VerifyOtpRepository
 import com.lock.the.box.roomdatabase.BaseActivity
+import com.lock.the.box.ui.home.HomeFragment
 import com.lock.the.box.viewmodel.SignUpViewModel
 import com.lock.the.box.viewmodel.VerifyOtpViewModel
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 class SignUpActivity : BaseActivity(), View.OnClickListener {
     lateinit var binding: ActivitySignupBinding
@@ -110,34 +115,37 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     fun setObserver() {
         signUpViewModel.signUpResponse.observe(this) {
-            if (it.status==1) {
-                /*val mFragmentManager = supportFragmentManager
-                val mFragmentTransaction = mFragmentManager.beginTransaction()
-                val mFragment = HomeFragment()
-                mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
-                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                val i = Intent(this, MainActivity::class.java)
-                startActivity(i)
-                finish()
+            if (it.status != null) {
+                if (it.status==1) {
+                    /*val mFragmentManager = supportFragmentManager
+                    val mFragmentTransaction = mFragmentManager.beginTransaction()
+                    val mFragment = HomeFragment()
+                    mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    val i = Intent(this, MainActivity::class.java)
+                    startActivity(i)
+                    finish()
+                }
             }
         }
     }
 
     fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
-            // if (it.status==1) {
-            binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-            binding.register.text = "VERIFIED"
-            binding.signupLayout.visibility = View.VISIBLE
-            Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-            Utils.hideSoftKeyBoard(this, binding.register )
-            // }
+            if (it.data !=null) {
+               // if (it.status==1) {
+                binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+                binding.register.text = "VERIFIED"
+                binding.signupLayout.visibility = View.VISIBLE
+                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                Utils.hideSoftKeyBoard(this, binding.register )
+               // }
+            }
         }
     }
 
     override fun onClick(p0: View?) {
         when (p0?.id) {
-
             R.id.btn_register -> {
                 if (binding.customerName.text.toString()
                         .isEmpty() && binding.customerName.text.toString().length < 5
@@ -177,7 +185,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             }
 
             R.id.register -> {
-                val otp: String = binding.etOtp.text.toString().trim()
+                val otp: String = binding.otpp.text.toString().trim()
                 val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
                 hashMap.put("phone_no", modile.toString())
                 hashMap.put("otp_code", otp)
@@ -189,18 +197,18 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     }
 
-   /* private suspend fun verifyOtp(otp: String) {
+/* private suspend fun verifyOtp(otp: String) {
 
-        val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-        hashMap.put("phone_no", modile.toString())
-        hashMap.put("otp_code", otp)
+     val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
+     hashMap.put("phone_no", modile.toString())
+     hashMap.put("otp_code", otp)
 
-        val data = verifyOtpRepository.otpRequest(hashMap)
+     val data = verifyOtpRepository.otpRequest(hashMap)
 
-        if (!data.data?.token.isNullOrEmpty()) {
-            binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-            binding.signupLayout.visibility = View.VISIBLE
-            Toast.makeText(this, data.message, Toast.LENGTH_LONG).show()
-           // Utils.hideSoftKeyBoard(this, binding.register )
-        }
-    }*/
+     if (!data.data?.token.isNullOrEmpty()) {
+         binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+         binding.signupLayout.visibility = View.VISIBLE
+         Toast.makeText(this, data.message, Toast.LENGTH_LONG).show()
+        // Utils.hideSoftKeyBoard(this, binding.register )
+     }
+ }*/

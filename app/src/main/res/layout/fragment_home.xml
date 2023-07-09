@@ -29,10 +29,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/rlserach">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint_main"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="@dimen/_15sdp"
-                    android:id="@+id/constraint_main">
+                    android:padding="@dimen/_15sdp">
 
                     <ImageView
                         android:id="@+id/img_book"
@@ -92,14 +92,31 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/constraint_main">
 
-                   <!-- <LinearLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:weightSum="1">
+                        android:weightSum="1"
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <ProgressBar
+                            android:id="@+id/pb_details"
+                            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight=".8"
+                            android:max="100" />
 
-                    </LinearLayout>-->
+                        <TextView
+                            android:id="@+id/tv_progress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".2"
+                            android:text="20% completed" />
+                    </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
