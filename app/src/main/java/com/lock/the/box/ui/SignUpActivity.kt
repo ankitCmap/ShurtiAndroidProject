@@ -1,15 +1,26 @@
 package com.lock.the.box.ui
 
+import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Address
+import android.location.Geocoder
+import android.location.Location
+import android.location.LocationManager
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.provider.Settings
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.util.Util
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.lock.the.box.R
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.adapter.helper.Utils
 import com.lock.the.box.databinding.ActivitySignupBinding
 import com.lock.the.box.network.RetrofitHelper
@@ -17,22 +28,34 @@ import com.lock.the.box.network.WebServices
 import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.repository.VerifyOtpRepository
 import com.lock.the.box.roomdatabase.BaseActivity
-import com.lock.the.box.ui.home.HomeFragment
 import com.lock.the.box.viewmodel.SignUpViewModel
 import com.lock.the.box.viewmodel.VerifyOtpViewModel
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.json.JSONObject
+import java.util.Locale
+
 
 class SignUpActivity : BaseActivity(), View.OnClickListener {
+    private var mId: String? = ""
+    private var countryName: String =""
+    private var cityName: String =""
+    private var latitude: Double = 0.0
+    private var longitude: Double = 0.0
     lateinit var binding: ActivitySignupBinding
     var modile: String? = null
     private lateinit var signUpViewModel: SignUpViewModel
     private lateinit var verifyOtpViewModel: VerifyOtpViewModel
+
+    private lateinit var mFusedLocationClient: FusedLocationProviderClient
+    private val permissionId = 2
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
+        mId = Settings.Secure.getString(contentResolver, Settings.Secure.ANDROID_ID)
+
         modile = intent.getStringExtra("phone_number")
         signUpViewModel = getViewModel()
         verifyOtpViewModel = getOtpViewModel()
@@ -115,36 +138,53 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
     fun setObserver() {
         signUpViewModel.signUpResponse.observe(this) {
-            if (it.status != null) {
-                if (it.status==1) {
-                    /*val mFragmentManager = supportFragmentManager
-                    val mFragmentTransaction = mFragmentManager.beginTransaction()
-                    val mFragment = HomeFragment()
-                    mFragmentTransaction.add(R.id.frame_layout, mFragment).commit()*/
-                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    val i = Intent(this, NewMainActivity::class.java)
-                    startActivity(i)
-                    finish()
-                }
+            if (it.status==1) {
+                BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
+                Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                val i = Intent(this, MainActivity::class.java)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(i)
+                finish()
             }
         }
     }
 
     fun setOtpObserver() {
         verifyOtpViewModel.signUpResponse.observe(this) {
-            if (it.data !=null) {
-               // if (it.status==1) {
-                binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-                binding.register.text = "VERIFIED"
-                binding.signupLayout.visibility = View.VISIBLE
+            if (it.status == "1") {
+                if(it.message=="User logged in"){
+                    BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    val i = Intent(this, MainActivity::class.java)
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    startActivity(i)
+                    finish()
+                }else{
+                    binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
+                    binding.register.text = "VERIFIED"
+                    binding.signupLayout.visibility = View.VISIBLE
+                    binding.etOtp.visibility=View.GONE
+                    binding.llTimer.visibility=View.GONE
+                    Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    Utils.hideSoftKeyBoard(this, binding.register)
+                    getLocation()
+                }
+
+            } else {
+                binding.etOtp.visibility=View.VISIBLE
+                binding.llTimer.visibility=View.VISIBLE
+                binding.register.setBackgroundColor(resources.getColor(R.color.colorSplash))
+                binding.register.text = "VERIFY"
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                Utils.hideSoftKeyBoard(this, binding.register )
-               // }
+                Utils.hideSoftKeyBoard(this, binding.register)
             }
         }
     }
 
     override fun onClick(p0: View?) {
+
         when (p0?.id) {
             R.id.btn_register -> {
                 if (binding.customerName.text.toString()
@@ -164,22 +204,21 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                     binding.customerRePass.error = "This field is compulsory!"
                 } else if (binding.customerNewPass.text.toString() != binding.customerRePass.text.toString()) {
                     binding.customerRePass.error = "Password does not match"
-                } else/* if (binding.otpp.text.toString().isEmpty()) {
-                   // binding.otpp.error("Verify your mobile number!")
-                } else */ {
-                    val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
+                } else {
+                    val hashMap: HashMap<String, Any> =
+                        HashMap<String, Any>() //define empty hashmap
                     hashMap.put("user", modile.toString())
                     hashMap.put("uname", binding.customerName.text.toString())
                     hashMap.put("email", binding.customerEmail.text.toString().trim())
-                    hashMap.put("city", "noida")
+                    hashMap.put("city", cityName)
                     hashMap.put("state", "up")
                     hashMap.put("device_type", "Android")
-                    hashMap.put("device_id", "AS12233")
-                    hashMap.put("lat", "33.3333")
-                    hashMap.put("long", "43.333")
-                    hashMap.put("referrer_code", "9990ASDe333")
+                    mId?.let { hashMap.put("device_id", it) }
+                    hashMap.put("lat",latitude)
+                    hashMap.put("long",longitude)
+                    hashMap.put("referrer_code", "")
                     hashMap.put("password", binding.customerNewPass.text.toString().trim())
-                      signUpViewModel.signUpResponse(hashMap,this)
+                    signUpViewModel.signUpResponse(hashMap, this)
                 }
 
             }
@@ -189,26 +228,88 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                 val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
                 hashMap.put("phone_no", modile.toString())
                 hashMap.put("otp_code", otp)
-                verifyOtpViewModel.signUpResponse(hashMap,this)
-                }
-
+                verifyOtpViewModel.signUpResponse(hashMap, this)
             }
-        }
 
+        }
     }
 
-   /* private suspend fun verifyOtp(otp: String) {
+    @SuppressLint("MissingPermission", "SetTextI18n")
+    private fun getLocation() {
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+                mFusedLocationClient.lastLocation.addOnCompleteListener(this) { task ->
+                    val location: Location? = task.result
+                    if (location != null) {
+                        val geocoder = Geocoder(this, Locale.getDefault())
+                        val list: List<Address> =
+                            geocoder.getFromLocation(location.latitude, location.longitude, 1) as List<Address>
+                        latitude=list[0].latitude
+                        longitude=list[0].longitude
+                        countryName=list[0].countryName
+                        cityName=list[0].locality
+                        Toast.makeText(this, "Latitude\n${list[0].latitude}\n" +
+                                " Longitude\n${list[0].longitude}\n" +
+                                "Country Name\n${list[0].countryName}\n" +
+                                "Locality\n${list[0].locality}\n" +
+                                "Address\n${list[0].getAddressLine(0)}"
+                            , Toast.LENGTH_LONG).show()
 
-        val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-        hashMap.put("phone_no", modile.toString())
-        hashMap.put("otp_code", otp)
-
-        val data = verifyOtpRepository.otpRequest(hashMap)
-
-        if (!data.data?.token.isNullOrEmpty()) {
-            binding.register.setBackgroundColor(resources.getColor(R.color.green_text))
-            binding.signupLayout.visibility = View.VISIBLE
-            Toast.makeText(this, data.message, Toast.LENGTH_LONG).show()
-           // Utils.hideSoftKeyBoard(this, binding.register )
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Please turn on location", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                startActivity(intent)
+            }
+        } else {
+            requestPermissions()
         }
-    }*/
+    }
+    private fun requestPermissions() {
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ),
+            permissionId
+        )
+    }
+    private fun isLocationEnabled(): Boolean {
+        val locationManager: LocationManager =
+            getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER
+        )
+    }
+    private fun checkPermissions(): Boolean {
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            return true
+        }
+        return false
+    }
+
+    @SuppressLint("MissingSuperCall")
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == permissionId) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                getLocation()
+            }
+        }
+    }
+
+}
+

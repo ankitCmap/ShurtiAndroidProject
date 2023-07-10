@@ -87,6 +87,7 @@
                 android:layout_gravity="center"
                 android:textSize="@dimen/_18ssp"
                 android:textColor="@color/white"
+                android:textAlignment="center"
                 android:fontFamily="@font/nunitosans_regular"/>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
