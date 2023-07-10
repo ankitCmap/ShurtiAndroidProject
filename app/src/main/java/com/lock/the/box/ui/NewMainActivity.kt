@@ -47,16 +47,19 @@ class NewMainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedL
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this@NewMainActivity,
             binding.drawerLayout,
-            R.string.nav_open,
-            R.string.nav_close
+            mToolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
+
         binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
+        actionBarDrawerToggle.isDrawerIndicatorEnabled = false
 
         val drawable =
             ResourcesCompat.getDrawable(resources, R.drawable.nav_icon, theme)
-        actionBarDrawerToggle.isDrawerIndicatorEnabled = false
-        actionBarDrawerToggle.setHomeAsUpIndicator(drawable)
+
+       // actionBarDrawerToggle.setHomeAsUpIndicator(drawable)
         actionBarDrawerToggle.toolbarNavigationClickListener = View.OnClickListener {
             if (binding.drawerLayout.isDrawerVisible(GravityCompat.START)) {
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -66,7 +69,9 @@ class NewMainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedL
         }
 
         // to make the Navigation drawer icon always appear on the action bar
+        supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.nav_icon)
         binding.navView.setCheckedItem(R.id.nav_account)
         replaceFragment(HomeFragment(), "Home")
         binding.navView.setNavigationItemSelectedListener {
