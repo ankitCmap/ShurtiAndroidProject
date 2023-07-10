@@ -1,5 +1,6 @@
 package com.lock.the.box.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -9,6 +10,7 @@ import com.lock.the.box.roomdatabase.BaseActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +19,7 @@ class SplashActivity : BaseActivity() {
             delay(3000L)
             if (BasePreferencesManager.getBoolean(BasePreferencesManager.IS_LOGIN, false)
                 || BasePreferencesManager.getBoolean(BasePreferencesManager.IS_SKIP, false)) {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                val intent = Intent(this@SplashActivity, NewMainActivity::class.java)
                 startActivity(intent)
                 finish()
             }else {

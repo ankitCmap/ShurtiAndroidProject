@@ -141,7 +141,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             if (it.status==1) {
                 BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                 Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                val i = Intent(this, MainActivity::class.java)
+                val i = Intent(this, NewMainActivity::class.java)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                 startActivity(i)
@@ -156,7 +156,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
                 if(it.message=="User logged in"){
                     BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
-                    val i = Intent(this, MainActivity::class.java)
+                    val i = Intent(this, NewMainActivity::class.java)
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(i)
