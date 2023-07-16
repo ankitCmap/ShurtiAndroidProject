@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,14 +22,24 @@ import com.lock.the.box.adapter.LeadershipBookAdapter
 import com.lock.the.box.adapter.NewArrivalAdapter
 import com.lock.the.box.adapter.PoliticalMarvelsAdapter
 import com.lock.the.box.adapter.RvCatAdapter
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.databinding.FragmentHomeBinding
+import com.lock.the.box.network.RetrofitHelper
+import com.lock.the.box.network.WebServices
+import com.lock.the.box.repository.HomeRepository
+import com.lock.the.box.repository.SignUpRepository
+import com.lock.the.box.viewmodel.HomeViewModel
 import com.lock.the.box.viewmodel.MainVM
+import com.lock.the.box.viewmodel.SignUpViewModel
 
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     lateinit var viewModel: MainVM
+    private lateinit var homeViewModel: HomeViewModel
+    private val userId:String = "12578"
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -38,18 +49,18 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this)[HomeViewModel::class.java]
+
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-//        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-        }
+        homeViewModel = getViewModel()
+        _binding!!.homeViewModel = homeViewModel
 
         initializeView()
-        
+        val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
+        hashMap["user_id"] = userId
+        homeViewModel.homeResponse(hashMap,activity)
+        setObserver()
+
         return binding.root
 
     }
@@ -70,10 +81,7 @@ class HomeFragment : Fragment() {
         val adapter = RvCatAdapter()
         binding.rvCat.adapter = adapter
 
-        binding.rvBestBookAllTime.layoutManager =
-            LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        val bestBooksForAllTimeAdapter = BestBooksForAllTimeAdapter()
-        binding.rvBestBookAllTime.adapter = bestBooksForAllTimeAdapter
+
 
         //
 
@@ -137,6 +145,33 @@ class HomeFragment : Fragment() {
         val bestFromLiteratureAndFictionAdapter = BestFromLiteratureAndFictionAdapter()
         binding.rvBestFromLiteratureAndFiction.adapter = bestFromLiteratureAndFictionAdapter
 
+    }
+
+    fun setObserver() {
+        homeViewModel.productList.observe(viewLifecycleOwner) {
+            //if (it.status==1) {
+               /* BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
+                Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()*/
+
+                binding.rvBestBookAllTime.layoutManager =
+                    LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                val bestBooksForAllTimeAdapter = BestBooksForAllTimeAdapter(it)
+                binding.rvBestBookAllTime.adapter = bestBooksForAllTimeAdapter
+
+            }
+        //}
+    }
+
+    fun getViewModel(): HomeViewModel {
+        return ViewModelProvider(
+            this, HomeViewModel.Factory(
+                HomeRepository(
+                    RetrofitHelper.createRetrofitService(
+                        WebServices::class.java
+                    )
+                )
+            )
+        ).get("", HomeViewModel::class.java)
     }
 
 }

@@ -25,4 +25,7 @@ interface WebServices {
 
     @POST("check-otp.php")
     suspend fun verifyOtpApi(@Body params: HashMap<String, Any>): Response<OtpVerifyModel>
+
+    @POST("home.php")
+    suspend fun homeApi(@Body params: HashMap<String, Any>): Response<OtpVerifyModel>
 }

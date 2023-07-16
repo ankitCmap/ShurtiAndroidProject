@@ -1,58 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="180dp"
-    android:layout_height="@dimen/_220sdp"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="homeViewModel"
+            type="com.lock.the.box.viewmodel.HomeViewModel" />
+        <variable
+            name="glide"
+            type="com.bumptech.glide.Glide" />
+    </data>
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:elevation="@dimen/_5sdp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="@dimen/_5sdp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true">
+    <LinearLayout
+        android:layout_width="180dp"
+        android:layout_height="@dimen/_220sdp"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:elevation="@dimen/_5sdp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true">
 
-            <ImageView
-                android:id="@+id/image_books"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/best_of_all_time"/>
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_books_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="The Da Vinci Code"
-                android:textSize="@dimen/_11sdp"
-                android:padding="@dimen/_10sdp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@+id/image_books"
-                android:gravity="center_horizontal"/>
+                <ImageView
+                    android:id="@+id/image_books"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_140sdp"
+                    android:scaleType="fitXY"
+                    app:image="@{homeViewModel.storeWiseProduct.get(0).product_list.get(0).get(0).bookchor_image}"
+                    android:src="@drawable/best_of_all_time"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:text="ADD TO CART"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_10sdp"
-                android:fontFamily="sans-serif"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:background="@drawable/add_to_cart_background"
-                app:layout_constraintTop_toBottomOf="@+id/text_books_name"/>
+                <TextView
+                    android:id="@+id/text_books_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@{homeViewModel.storeWiseProduct.get(0).product_list.get(0).get(0).title}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp"
+                    app:layout_constraintTop_toBottomOf="@+id/image_books" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@drawable/add_to_cart_background"
+                    android:fontFamily="sans-serif"
+                    android:text="ADD TO CART"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_books_name" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

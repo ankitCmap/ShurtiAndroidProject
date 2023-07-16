@@ -1,23 +1,25 @@
 package com.lock.the.box.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.lock.the.box.R
+import com.lock.the.box.databinding.BestBooksOffAllTimeAdapterBinding
+import com.lock.the.box.model.ProductModel
+import com.lock.the.box.model.StoreWiseProductModel
 
-class BestBooksForAllTimeAdapter : RecyclerView.Adapter<BestBooksForAllTimeAdapter.ViewHolder>() {
+class BestBooksForAllTimeAdapter(private val productList: List<ProductModel>) :
+    RecyclerView.Adapter<BestBooksForAllTimeAdapter.ViewHolder>() {
+
+
+    private lateinit var adapterBinding: BestBooksOffAllTimeAdapterBinding
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.best_books_off_all_time_adapter, parent, false)
-
-        return ViewHolder(view)
+        adapterBinding = BestBooksOffAllTimeAdapterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(adapterBinding)
     }
 
     // binds the list items to a view
@@ -35,11 +37,11 @@ class BestBooksForAllTimeAdapter : RecyclerView.Adapter<BestBooksForAllTimeAdapt
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return 8
+        return productList.size
     }
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+    class ViewHolder(ItemView: BestBooksOffAllTimeAdapterBinding) : RecyclerView.ViewHolder(ItemView.root) {
 
         val imageView: ImageView = itemView.findViewById(R.id.image_books)
         val textView: TextView = itemView.findViewById(R.id.text_books_name)
