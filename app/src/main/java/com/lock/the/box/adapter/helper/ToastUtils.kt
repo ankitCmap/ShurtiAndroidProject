@@ -5,14 +5,14 @@ import android.widget.Toast
 
 object ToastUtils {
 
-    fun showToast(context: Context?, rID: Int, length: Int) {
+    fun showToast(context: Context, rID: Int, length: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(context, rID, length).show()
     }
 
     fun showShortToast(rID: Int) {
     }
 
-    fun showToast(context: Context?, rID: String?, length: Int) {
+    fun showToast(context: Context, rID: String, length: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(context, rID, length).show()
 
     }

@@ -7,9 +7,8 @@
         <variable
             name="homeViewModel"
             type="com.lock.the.box.viewmodel.HomeViewModel" />
-        <variable
-            name="glide"
-            type="com.bumptech.glide.Glide" />
+
+        <import type="android.view.View"/>
     </data>
 
     <ScrollView
@@ -24,6 +23,12 @@
             android:orientation="vertical"
             tools:context=".ui.home.HomeFragment">
 
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_gravity="center_horizontal"
+                android:visibility="@{homeViewModel.isLoading()? View.VISIBLE : View.GONE}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -152,8 +157,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
-                android:scaleType="fitXY"
-                app:image="@{homeViewModel.homeDataList.banner.get(0).banner_image}" />
+                android:scaleType="fitXY" />
 
 
             <androidx.cardview.widget.CardView

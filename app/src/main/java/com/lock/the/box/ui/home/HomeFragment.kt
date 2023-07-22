@@ -53,20 +53,16 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         homeViewModel = getViewModel()
-        _binding!!.homeViewModel = homeViewModel
+        binding.homeViewModel = homeViewModel
+        binding.lifecycleOwner = this
 
         initializeView()
-        val hashMap: HashMap<String, Any> = HashMap<String, Any>() //define empty hashmap
-        hashMap["user_id"] = userId
-        homeViewModel.homeResponse(hashMap,activity)
+        val hashMap: HashMap<String, Any> = HashMap() //define empty hashmap
+        hashMap.put("user_id",userId)
+        homeViewModel.homeResponse(hashMap)
         setObserver()
 
         return binding.root
-
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
     }
 
@@ -75,15 +71,11 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    fun initializeView() {
+    private fun initializeView() {
         binding.rvCat.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         val adapter = RvCatAdapter()
         binding.rvCat.adapter = adapter
-
-
-
-        //
 
         binding.rvBestSellerHealthBook.layoutManager =
             LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
@@ -147,7 +139,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    fun setObserver() {
+    private fun setObserver() {
         homeViewModel.productList.observe(viewLifecycleOwner) {
             //if (it.status==1) {
                /* BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
@@ -171,7 +163,7 @@ class HomeFragment : Fragment() {
                     )
                 )
             )
-        ).get("", HomeViewModel::class.java)
+        )[HomeViewModel::class.java]
     }
 
 }

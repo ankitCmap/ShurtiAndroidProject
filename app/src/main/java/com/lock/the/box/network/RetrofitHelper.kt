@@ -22,7 +22,9 @@ object RetrofitHelper {
     }
 
     private object RetrofitObj {
-
+        val interceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
         val client: Retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
@@ -30,7 +32,6 @@ object RetrofitHelper {
                 HttpManager.normalClient.newBuilder()
                     .callTimeout(30, TimeUnit.SECONDS)
                     .addInterceptor(interceptor)
-                   /* .addInterceptor(UnauthorizedInterceptor())*/
                     .build()
             )
             .build()
@@ -63,13 +64,6 @@ object RetrofitHelper {
 
     }
 */
-
-    private val interceptor = run {
-        val httpLoggingInterceptor = HttpLoggingInterceptor()
-        httpLoggingInterceptor.apply {
-            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        }
-    }
 
 }
 

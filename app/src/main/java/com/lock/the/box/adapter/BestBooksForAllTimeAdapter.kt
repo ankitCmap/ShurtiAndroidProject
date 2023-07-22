@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.lock.the.box.R
 import com.lock.the.box.databinding.BestBooksOffAllTimeAdapterBinding
 import com.lock.the.box.model.ProductModel
-import com.lock.the.box.model.StoreWiseProductModel
 
 class BestBooksForAllTimeAdapter(private val productList: List<ProductModel>) :
     RecyclerView.Adapter<BestBooksForAllTimeAdapter.ViewHolder>() {

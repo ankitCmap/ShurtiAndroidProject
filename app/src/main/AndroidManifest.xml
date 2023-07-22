@@ -34,7 +34,7 @@
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name="com.lock.the.box.ui.SplashActivity"
+            android:name="com.lock.the.box.ui.NewMainActivity"
             android:exported="true"
             android:theme="@style/Theme.ShurtiAndroidProject">
             <intent-filter>
@@ -50,7 +50,7 @@
 
 
         <activity
-            android:name="com.lock.the.box.ui.NewMainActivity"
+            android:name="com.lock.the.box.ui.SplashActivity"
             android:exported="true"/>
         <activity
             android:name="com.lock.the.box.ui.SignUpActivity"

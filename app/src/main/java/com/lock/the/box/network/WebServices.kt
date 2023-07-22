@@ -1,5 +1,6 @@
 package com.lock.the.box.network
 
+import com.lock.the.box.model.HomeModel
 import com.lock.the.box.model.MainModel
 import com.lock.the.box.model.OtpVerifyModel
 import com.lock.the.box.model.SignUpData
@@ -27,5 +28,5 @@ interface WebServices {
     suspend fun verifyOtpApi(@Body params: HashMap<String, Any>): Response<OtpVerifyModel>
 
     @POST("home.php")
-    suspend fun homeApi(@Body params: HashMap<String, Any>): Response<OtpVerifyModel>
+    suspend fun homeApi(@Body params: HashMap<String, Any>): HomeModel
 }

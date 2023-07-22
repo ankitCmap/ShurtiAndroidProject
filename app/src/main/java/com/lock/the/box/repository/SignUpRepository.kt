@@ -4,6 +4,7 @@ import android.util.Log
 import com.lock.the.box.model.SignUpData
 import com.lock.the.box.network.Resource
 import com.lock.the.box.network.WebServices
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject

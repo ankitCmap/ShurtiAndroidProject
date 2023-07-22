@@ -34,7 +34,6 @@ class VerifyOtpViewModel (val verifyOtpRepository: VerifyOtpRepository) : ViewMo
                     Resource.Status.SUCCESS -> {
                         if (it.data != null) {
                             verifyOtpResponseData(it.data)
-                            Log.d("prabal_data", it.data.toString())
                             pd.dismiss()
                         }
                     }

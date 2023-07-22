@@ -12,6 +12,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.provider.Settings
+import android.util.AttributeSet
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast

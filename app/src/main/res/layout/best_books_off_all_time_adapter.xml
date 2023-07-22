@@ -33,7 +33,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_140sdp"
                     android:scaleType="fitXY"
-                    app:image="@{homeViewModel.storeWiseProduct.get(0).product_list.get(0).get(0).bookchor_image}"
                     android:src="@drawable/best_of_all_time"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -45,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="@dimen/_10sdp"
-                    android:text="@{homeViewModel.storeWiseProduct.get(0).product_list.get(0).get(0).title}"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/_11sdp"
                     app:layout_constraintTop_toBottomOf="@+id/image_books" />
