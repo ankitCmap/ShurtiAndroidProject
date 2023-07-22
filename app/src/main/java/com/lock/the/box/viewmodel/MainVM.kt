@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.lock.the.box.adapter.helper.ShurtiApplication.Companion.instance
+import com.lock.the.box.ShurtiApplication.Companion.instance
 import com.lock.the.box.adapter.helper.Utils.checkForInternet
 import com.lock.the.box.adapter.helper.Utils.showToast
 import com.lock.the.box.model.MainModel

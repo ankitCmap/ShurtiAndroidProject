@@ -9,6 +9,7 @@ import com.lock.the.box.databinding.ItemBottomsheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.lock.the.box.ShurtiApplication
 import kotlin.math.max
 
 class CartBottomSheetDialog() :BottomSheetDialogFragment() {

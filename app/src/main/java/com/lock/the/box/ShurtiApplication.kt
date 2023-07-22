@@ -1,10 +1,13 @@
-package com.lock.the.box.adapter.helper
+package com.lock.the.box
 
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
+import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.network.HttpManager
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class ShurtiApplication : Application() {
     var mInstance: ShurtiApplication? = null
     var mContext: Context? = null

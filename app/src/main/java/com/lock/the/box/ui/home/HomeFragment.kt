@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lock.the.box.adapter.BestBooksForAllTimeAdapter
@@ -31,28 +32,19 @@ import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.viewmodel.HomeViewModel
 import com.lock.the.box.viewmodel.MainVM
 import com.lock.the.box.viewmodel.SignUpViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-    lateinit var viewModel: MainVM
-    private lateinit var homeViewModel: HomeViewModel
+    private val binding get() = _binding!!
+    private val homeViewModel: HomeViewModel by viewModels()
     private val userId:String = "12578"
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel = getViewModel()
         binding.homeViewModel = homeViewModel
         binding.lifecycleOwner = this
 
@@ -152,18 +144,6 @@ class HomeFragment : Fragment() {
 
             }
         //}
-    }
-
-    fun getViewModel(): HomeViewModel {
-        return ViewModelProvider(
-            this, HomeViewModel.Factory(
-                HomeRepository(
-                    RetrofitHelper.createRetrofitService(
-                        WebServices::class.java
-                    )
-                )
-            )
-        )[HomeViewModel::class.java]
     }
 
 }

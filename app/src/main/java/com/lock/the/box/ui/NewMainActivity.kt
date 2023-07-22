@@ -22,9 +22,10 @@ import com.google.android.material.navigation.NavigationView
 import com.lock.the.box.R
 import com.lock.the.box.databinding.ActivityDashMainBinding
 import com.lock.the.box.ui.gallery.GalleryFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess
 
-
+@AndroidEntryPoint
 class NewMainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener,
     View.OnClickListener {
     lateinit var binding: ActivityDashMainBinding

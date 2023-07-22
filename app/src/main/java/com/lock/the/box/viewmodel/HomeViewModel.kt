@@ -10,12 +10,15 @@ import com.lock.the.box.model.ProductModel
 import com.lock.the.box.model.StoreWiseProductModel
 import com.lock.the.box.network.Result
 import com.lock.the.box.repository.HomeRepository
-import kotlinx.coroutines.CoroutineExceptionHandler
+import dagger.hilt.android.lifecycle.HiltViewModel
+
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 
-class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val repository: HomeRepository) : ViewModel() {
 
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val error: MutableLiveData<String>? = null
@@ -52,13 +55,6 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
             synchronized(it) {
                 error.postValue("")
             }
-        }
-    }
-
-    class Factory(private val homeRepository: HomeRepository) :
-        ViewModelProvider.NewInstanceFactory() {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return HomeViewModel(homeRepository) as T
         }
     }
 

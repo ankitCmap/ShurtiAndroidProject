@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.lock.the.box.databinding.ActivityCartBinding
 import com.lock.the.box.adapter.helper.CartBottomSheetDialog
-import com.lock.the.box.adapter.helper.ShurtiApplication
+import com.lock.the.box.ShurtiApplication
 import com.lock.the.box.roomdatabase.BaseActivity
 
 
