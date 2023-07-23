@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lock.the.box.adapter.BestBooksForAllTimeAdapter
 import com.lock.the.box.adapter.BestFromChildrenAdapter
@@ -23,15 +21,8 @@ import com.lock.the.box.adapter.LeadershipBookAdapter
 import com.lock.the.box.adapter.NewArrivalAdapter
 import com.lock.the.box.adapter.PoliticalMarvelsAdapter
 import com.lock.the.box.adapter.RvCatAdapter
-import com.lock.the.box.adapter.helper.BasePreferencesManager
 import com.lock.the.box.databinding.FragmentHomeBinding
-import com.lock.the.box.network.RetrofitHelper
-import com.lock.the.box.network.WebServices
-import com.lock.the.box.repository.HomeRepository
-import com.lock.the.box.repository.SignUpRepository
 import com.lock.the.box.viewmodel.HomeViewModel
-import com.lock.the.box.viewmodel.MainVM
-import com.lock.the.box.viewmodel.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -132,14 +123,14 @@ class HomeFragment : Fragment() {
     }
 
     private fun setObserver() {
-        homeViewModel.productList.observe(viewLifecycleOwner) {
+        homeViewModel.storeWiseProduct.observe(viewLifecycleOwner) {
             //if (it.status==1) {
                /* BasePreferencesManager.putBoolean(BasePreferencesManager.IS_LOGIN,true)
                 Toast.makeText(activity, it.message, Toast.LENGTH_LONG).show()*/
 
                 binding.rvBestBookAllTime.layoutManager =
                     LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-                val bestBooksForAllTimeAdapter = BestBooksForAllTimeAdapter(it)
+                val bestBooksForAllTimeAdapter = BestBooksForAllTimeAdapter(it,context)
                 binding.rvBestBookAllTime.adapter = bestBooksForAllTimeAdapter
 
             }
