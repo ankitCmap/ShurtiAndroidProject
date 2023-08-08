@@ -17,10 +17,15 @@
         android:title="Home"
         android:icon="@drawable/cart_icon"/>
 
-    <item
-        android:id="@+id/nav_settings"
-        android:title="Settings"
-        android:icon="@drawable/cart_icon"/>
+        <item
+            android:id="@+id/nav_profile"
+            android:title="Profile"
+            android:icon="@drawable/cart_icon"/>
+
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Refer &amp; earn"
+            android:icon="@drawable/cart_icon"/>
 
     <item
         android:id="@+id/nav_logout"

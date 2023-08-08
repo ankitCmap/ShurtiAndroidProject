@@ -4,11 +4,12 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".helper.ShurtiApplication"
-        android:allowBackup="true"
+        android:name="com.lock.the.box.ShurtiApplication"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -17,51 +18,50 @@
         android:theme="@style/Theme.ShurtiAndroidProject"
         tools:targetApi="31">
         <activity
-            android:name=".ui.DetailsActivity"
+            android:name="com.lock.the.box.ui.DetailsActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.SocialActivity"
+            android:name="com.lock.the.box.ui.SocialActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.lock.the.box.ui.MainActivity"
             android:exported="false"
             android:theme="@style/MainActivityThem"/>
 
-        <activity android:name=".ui.LoginSignupActivity"
+        <activity android:name="com.lock.the.box.ui.LoginSignupActivity"
             android:exported="false"
             android:theme="@style/Theme.ShurtiAndroidProject"/>
         <activity
-            android:name=".ui.SplashActivity"
+            android:name="com.lock.the.box.ui.NewMainActivity"
             android:exported="true"
             android:theme="@style/Theme.ShurtiAndroidProject">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.shurtiandroidproject.ui.ChangePasswordActivity"
+        <activity
+            android:name="com.lock.the.box.ui.ChangePasswordActivity"
+            android:exported="true"/>
+
+
+
+        <activity
+            android:name="com.lock.the.box.ui.SplashActivity"
             android:exported="true"/>
         <activity
-            android:name="com.example.shurtiandroidproject.ui.DashbordActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ShurtiAndroidProject.NoActionBar" />
-        <activity
-            android:name="com.example.shurtiandroidproject.ui.NewMainActivity"
+            android:name="com.lock.the.box.ui.SignUpActivity"
             android:exported="true"/>
-        <activity
-            android:name="com.example.shurtiandroidproject.ui.SignUpActivity"
+        <activity android:name="com.lock.the.box.ui.LoginWithPasswordActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.LoginWithPasswordActivity"
+        <activity android:name="com.lock.the.box.ui.OtpVerificationActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.OtpVerificationActivity"
+        <activity android:name="com.lock.the.box.ui.CartActivity"
             android:exported="true"/>
-        <activity android:name="com.example.shurtiandroidproject.ui.CartActivity"
-            android:exported="true"/>
+        <activity android:name="com.lock.the.box.ui.EditProfileActivity" />
 
     </application>
 
